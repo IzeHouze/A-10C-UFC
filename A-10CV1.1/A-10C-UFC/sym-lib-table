@@ -1,0 +1,3 @@
+(sym_lib_table
+  (lib (name A-10C-UFC-rescue)(type Legacy)(uri ${KIPRJMOD}/A-10C-UFC-rescue.lib)(options "")(descr ""))
+)
