@@ -12,6 +12,10 @@ port, as those are Transmit and Receive for the USB COM port.
 
 I have revised the schematics and layout to move those IOs to A0 and A1 on J3.
 
+I have also added in the connections for a NANO.
+
+And two JST connectors for an external reset button and a Mode selector switch for A-10 and F-18.
+
 Happy BRRRRTing!
 
 

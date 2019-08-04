@@ -1,12 +1,12 @@
 /*  A-10C
- This code is written for the custom PCB V1.1 created by Izehouze for the A-10C 
- You may need to adjust the letters/numbers in the Rows Cols list if you have created your own panel
- As shown below this uses the 
+  This code is written for the custom PCB V1.1 created by Izehouze for the A-10C
+  You may need to adjust the letters/numbers in the Rows Cols list if you have created your own panel
+  As shown below this uses the
 
- Keypad Library for Arduino
- Authors:  Mark Stanley, Alexander Brevig
+  Keypad Library for Arduino
+  Authors:  Mark Stanley, Alexander Brevig
 
- and DCS-BIOS from http://dcs-bios.a10c.de/
+  and DCS-BIOS from http://dcs-bios.a10c.de/
 
 */
 #define DCSBIOS_DEFAULT_SERIAL
@@ -32,10 +32,25 @@ byte colPins[COLS] = { 6, 7, 8, 9, 10, 11 };
 // Create the Keypad
 Keypad kpd = Keypad( makeKeymap(keys), rowPins, colPins, ROWS, COLS );
 
-DcsBios::LED masterCaution(0x1012, 0x0800, 12);
+bool sState = false;
+char AC = "A10";
 
 void setup()
 {
+  pinMode(13, OUTPUT);
+  pinMode(A3, INPUT_PULLUP);
+  sState = digitalRead(A3);
+  if (sState) {
+    AC = "A10";
+    digitalWrite(13, HIGH);
+    DcsBios::LED masterCaution(0x1012, 0x0800, 12);
+  }
+  else {
+    AC = "F18";
+    digitalWrite(13, LOW);
+    DcsBios::LED masterCaution(0x5400, 0x0200, 12);
+  }
+
   DcsBios::setup();
   kpd.addEventListener(keypadEvent);  // Add an event listener.
   kpd.setHoldTime(100);               // Default is 1000mS
