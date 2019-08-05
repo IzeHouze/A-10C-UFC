@@ -13,8 +13,10 @@
 #include "DcsBios.h"
 #include <Keypad.h>
 
+const int led = 13;
 const byte ROWS = 6; // Six rows
 const byte COLS = 6; // Six columns
+
 // Define the Keymap
 char keys[ROWS][COLS] = {
   {'S', '5', '0', 'M', '$', 'B'},
@@ -33,7 +35,45 @@ byte colPins[COLS] = { 6, 7, 8, 9, 10, 11 };
 Keypad kpd = Keypad( makeKeymap(keys), rowPins, colPins, ROWS, COLS );
 
 bool sState = false;
-char AC = "A10";
+char *AC = "A10";
+char *mastCautReset = "UFC_MASTER_CAUTION";
+char *spcAP = "UFC_SPC";
+char *clrIFF = "UFC_CLR";
+char *altTCN = "UFC_ALT_ALRT";
+char *cm2ILS = "EPP_BATTERY_PWR";
+char *eccmDL = "EPP_INVERTER";
+char *idmBCN = "EPP_APU_GEN_PWR";
+char *intenON = "UFC_INTEN";
+
+void setA10()
+{
+  AC = "A10";
+  digitalWrite(led, HIGH);
+  mastCautReset = "UFC_MASTER_CAUTION";
+  spcAP = "UFC_SPC";
+  clrIFF = "UFC_CLR";
+  altTCN = "UFC_ALT_ALRT";
+  cm2ILS = "EPP_BATTERY_PWR";
+  eccmDL = "EPP_INVERTER";
+  idmBCN = "EPP_APU_GEN_PWR";
+  intenON = "UFC_INTEN";
+  DcsBios::LED masterCaution(0x1012, 0x0800, 12);
+}
+
+void setF18()
+{
+  AC = "F18";
+  digitalWrite(led, LOW);
+  mastCautReset = "MASTER_CAUTION_RESET_SW";
+  spcAP = "UFC_AP";
+  clrIFF = "UFC_IFF";
+  altTCN = "UFC_TCN";
+  cm2ILS = "UFC_ILS";
+  eccmDL = "UFC_DL";
+  idmBCN = "UFC_BCN";
+  intenON = "UFC_ONOFF";
+  DcsBios::LED masterCaution(0x5400, 0x0200, 12);
+}
 
 void setup()
 {
@@ -41,14 +81,10 @@ void setup()
   pinMode(A3, INPUT_PULLUP);
   sState = digitalRead(A3);
   if (sState) {
-    AC = "A10";
-    digitalWrite(13, HIGH);
-    DcsBios::LED masterCaution(0x1012, 0x0800, 12);
+    setA10();
   }
   else {
-    AC = "F18";
-    digitalWrite(13, LOW);
-    DcsBios::LED masterCaution(0x5400, 0x0200, 12);
+    setF18();
   }
 
   DcsBios::setup();
@@ -81,25 +117,60 @@ void keypadEvent(KeypadEvent KEY) {
         case '9': sendDcsBiosMessage("UFC_9", "1"); break;
         case 'H': sendDcsBiosMessage("UFC_HACK", "1"); break;
         case '0': sendDcsBiosMessage("UFC_10", "1"); break;
-        case 'c': sendDcsBiosMessage("UFC_SPC", "1"); break;
+        case 'c': sendDcsBiosMessage(spcAP, "1"); break;
         case 'F': sendDcsBiosMessage("UFC_FUNC", "1"); break;
         case 'L': sendDcsBiosMessage("UFC_LTR", "1"); break;
-        case 'C': sendDcsBiosMessage("UFC_CLR", "1"); break;
+        case 'C': sendDcsBiosMessage(clrIFF, "1"); break;
         case 'E': sendDcsBiosMessage("UFC_ENT", "1"); break;
         case 'M': sendDcsBiosMessage("UFC_MK", "1"); break;
-        case 'a': sendDcsBiosMessage("UFC_ALT_ALRT", "1"); break;
-        case 'e': sendDcsBiosMessage("UFC_MASTER_CAUTION", "1"); break;
-        //case '!': sendDcsBiosMessage("UFC_NA1", "1"); break;
+        case 'a': sendDcsBiosMessage(altTCN, "1"); break;
+        case 'e': sendDcsBiosMessage(mastCautReset, "1"); break;
+        /* Original code for the unused 6 buttons on the UFC.
+            Items re-assigned to be something useful below.
+           case '!': sendDcsBiosMessage("UFC_NA1", "1"); break;
+           case '@': sendDcsBiosMessage("UFC_NA4", "1"); break;
+           case '#': sendDcsBiosMessage("UFC_NA2", "1"); break;
+           case '$': sendDcsBiosMessage("UFC_NA5", "1"); break;
+           case '%': sendDcsBiosMessage("UFC_NA3", "1"); break;
+           case '^': sendDcsBiosMessage("UFC_NA6", "1"); break;
+        */
         case '!': sendDcsBiosMessage("EPP_BATTERY_PWR", "1"); break;
-        //case '@': sendDcsBiosMessage("UFC_NA4", "1"); break;
-        case '@': sendDcsBiosMessage("EPP_BATTERY_PWR", "0"); break;
-        case '#': sendDcsBiosMessage("UFC_NA2", "1"); break;
-        case '$': sendDcsBiosMessage("UFC_NA5", "1"); break;
-        case '%': sendDcsBiosMessage("UFC_NA3", "1"); break;
-        case '^': sendDcsBiosMessage("UFC_NA6", "1"); break;
+        case '@': {
+            if (AC == "A10") {
+              sendDcsBiosMessage(cm2ILS, "0");
+              break;
+            }
+            else {
+              sendDcsBiosMessage(cm2ILS, "1");
+              break;
+            }
+          }
+
+        case '#': sendDcsBiosMessage("EPP_INVERTER", "2"); break;
+        case '$': sendDcsBiosMessage(eccmDL, "1"); break;
+        case '%': sendDcsBiosMessage("EPP_APU_GEN_PWR", "1"); break;
+        case '^': {
+            if (AC == "A10") {
+              sendDcsBiosMessage(idmBCN, "0");
+              break;
+            }
+            else {
+              sendDcsBiosMessage(idmBCN, "1");
+              break;
+            }
+          }
         case 'P': sendDcsBiosMessage("UFC_DATA", "2"); break;
         case 'p': sendDcsBiosMessage("UFC_DATA", "0"); break;
-        case 'b': sendDcsBiosMessage("UFC_INTEN", "0"); break;
+        case 'b': {
+            if (AC == "A10") {
+              sendDcsBiosMessage(intenON, "0");
+              break;
+            }
+            else {
+              sendDcsBiosMessage(intenON, "1");
+              break;
+            }
+          }
         case 'B': sendDcsBiosMessage("UFC_INTEN", "2"); break;
         case 'R': sendDcsBiosMessage("UFC_SEL", "2"); break;
         case 'r': sendDcsBiosMessage("UFC_SEL", "0"); break;
@@ -125,23 +196,41 @@ void keypadEvent(KeypadEvent KEY) {
         case '9': sendDcsBiosMessage("UFC_9", "0"); break;
         case 'H': sendDcsBiosMessage("UFC_HACK", "0"); break;
         case '0': sendDcsBiosMessage("UFC_10", "0"); break;
-        case 'c': sendDcsBiosMessage("UFC_SPC", "0"); break;
+        case 'c': sendDcsBiosMessage(spcAP, "0"); break;
         case 'F': sendDcsBiosMessage("UFC_FUNC", "0"); break;
         case 'L': sendDcsBiosMessage("UFC_LTR", "0"); break;
-        case 'C': sendDcsBiosMessage("UFC_CLR", "0"); break;
+        case 'C': sendDcsBiosMessage(clrIFF, "0"); break;
         case 'E': sendDcsBiosMessage("UFC_ENT", "0"); break;
         case 'M': sendDcsBiosMessage("UFC_MK", "0"); break;
-        case 'a': sendDcsBiosMessage("UFC_ALT_ALRT", "0"); break;
-        case 'e': sendDcsBiosMessage("UFC_MASTER_CAUTION", "0"); break;
+        case 'a': sendDcsBiosMessage(altTCN, "0"); break;
+        case 'e': sendDcsBiosMessage(mastCautReset, "0"); break;
         case '!': sendDcsBiosMessage("UFC_NA1", "0"); break;
-        case '@': sendDcsBiosMessage("UFC_NA4", "0"); break;
+        case '@': sendDcsBiosMessage(cm2ILS, "0"); break;
         case '#': sendDcsBiosMessage("UFC_NA2", "0"); break;
-        case '$': sendDcsBiosMessage("UFC_NA5", "0"); break;
+        case '$': {
+            if (AC == "A10") {
+              sendDcsBiosMessage(eccmDL, "1");
+              break;
+            }
+            else {
+              sendDcsBiosMessage(eccmDL, "0");
+              break;
+            }
+          }
         case '%': sendDcsBiosMessage("UFC_NA3", "0"); break;
-        case '^': sendDcsBiosMessage("UFC_NA6", "0"); break;
+        case '^': sendDcsBiosMessage(idmBCN, "0"); break;
         case 'P': sendDcsBiosMessage("UFC_DATA", "1"); break;
         case 'p': sendDcsBiosMessage("UFC_DATA", "1"); break;
-        case 'b': sendDcsBiosMessage("UFC_INTEN", "1"); break;
+        case 'b': {
+            if (AC == "A10") {
+              sendDcsBiosMessage(intenON, "1");
+              break;
+            }
+            else {
+              sendDcsBiosMessage(intenON, "0");
+              break;
+            }
+          }
         case 'B': sendDcsBiosMessage("UFC_INTEN", "1"); break;
         case 'R': sendDcsBiosMessage("UFC_SEL", "1"); break;
         case 'r': sendDcsBiosMessage("UFC_SEL", "1"); break;
