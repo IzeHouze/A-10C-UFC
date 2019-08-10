@@ -10,7 +10,7 @@
 
 */
 #define DCSBIOS_DEFAULT_SERIAL
-#include "DcsBios.h"
+#include <DcsBios.h>
 #include <Keypad.h>
 
 const int led = 13;
@@ -136,7 +136,7 @@ void keypadEvent(KeypadEvent KEY) {
         */
         case '!': sendDcsBiosMessage("EPP_BATTERY_PWR", "1"); break;
         case '@': {
-            if (AC == "A10") {
+            if (strcmp(AC, "A10") == 0) {
               sendDcsBiosMessage(cm2ILS, "0");
               break;
             }
@@ -150,7 +150,7 @@ void keypadEvent(KeypadEvent KEY) {
         case '$': sendDcsBiosMessage(eccmDL, "1"); break;
         case '%': sendDcsBiosMessage("EPP_APU_GEN_PWR", "1"); break;
         case '^': {
-            if (AC == "A10") {
+            if (strcmp(AC, "A10") == 0) {
               sendDcsBiosMessage(idmBCN, "0");
               break;
             }
@@ -162,7 +162,7 @@ void keypadEvent(KeypadEvent KEY) {
         case 'P': sendDcsBiosMessage("UFC_DATA", "2"); break;
         case 'p': sendDcsBiosMessage("UFC_DATA", "0"); break;
         case 'b': {
-            if (AC == "A10") {
+            if (strcmp(AC, "A10") == 0) {
               sendDcsBiosMessage(intenON, "0");
               break;
             }
@@ -208,7 +208,7 @@ void keypadEvent(KeypadEvent KEY) {
         case '@': sendDcsBiosMessage(cm2ILS, "0"); break;
         case '#': sendDcsBiosMessage("UFC_NA2", "0"); break;
         case '$': {
-            if (AC == "A10") {
+            if (strcmp(AC, "A10") == 0) {
               sendDcsBiosMessage(eccmDL, "1");
               break;
             }
@@ -222,7 +222,7 @@ void keypadEvent(KeypadEvent KEY) {
         case 'P': sendDcsBiosMessage("UFC_DATA", "1"); break;
         case 'p': sendDcsBiosMessage("UFC_DATA", "1"); break;
         case 'b': {
-            if (AC == "A10") {
+            if (strcmp(AC, "A10") == 0) {
               sendDcsBiosMessage(intenON, "1");
               break;
             }
