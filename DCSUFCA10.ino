@@ -10,7 +10,7 @@
 
 */
 #define DCSBIOS_DEFAULT_SERIAL
-#include <DcsBios.h>
+#include "DcsBios.h"
 #include <Keypad.h>
 
 const int led = 13;
@@ -26,58 +26,59 @@ char keys[ROWS][COLS] = {
   {'7', '9', 'C', 'e', 'p', 'd'},
   {'2', 'H', 'E', '#', 'b'}
 };
-// Connect keypad ROW0, ROW1, ROW2, ROW3, ROW4, ROW5, and ROW6 to these Arduino pins.
-byte rowPins[ROWS] = { A0, A1, 2, 3, 4, 5 };
-// Connect keypad COL0, COL1, COL2, COL3, COL4, COL5, and COL6 to these Arduino pins.
+
+// Connect keypad ROW0, ROW1, ROW2 and ROW3 to these Arduino pins.
+byte rowPins[ROWS] = { A5, A4, 2, 3, 4, 5 };
+// Connect keypad COL0, COL1 and COL2 to these Arduino pins.
 byte colPins[COLS] = { 6, 7, 8, 9, 10, 11 };
 
 // Create the Keypad
 Keypad kpd = Keypad( makeKeymap(keys), rowPins, colPins, ROWS, COLS );
 
 bool sState = false;
-char *AC = "A10";
-char *mastCautReset = "UFC_MASTER_CAUTION";
-char *spcAP = "UFC_SPC";
-char *clrIFF = "UFC_CLR";
-char *altTCN = "UFC_ALT_ALRT";
-char *cm2ILS = "EPP_BATTERY_PWR";
-char *eccmDL = "EPP_INVERTER";
-char *idmBCN = "EPP_APU_GEN_PWR";
-char *intenON = "UFC_INTEN";
+char AC[] = "A10";
+char mastCautReset[] = "UFC_MASTER_CAUTION";
+char spcAP[] = "UFC_SPC";
+char clrIFF[] = "UFC_CLR";
+char altTCN[] = "UFC_ALT_ALRT";
+char cm2ILS[] = "EPP_BATTERY_PWR";
+char eccmDL[] = "EPP_INVERTER";
+char idmBCN[] = "EPP_APU_GEN_PWR";
+char intenON[] = "UFC_INTEN";
 
 void setA10()
 {
-  AC = "A10";
+  strcpy(AC , "A10");
   digitalWrite(led, HIGH);
-  mastCautReset = "UFC_MASTER_CAUTION";
-  spcAP = "UFC_SPC";
-  clrIFF = "UFC_CLR";
-  altTCN = "UFC_ALT_ALRT";
-  cm2ILS = "EPP_BATTERY_PWR";
-  eccmDL = "EPP_INVERTER";
-  idmBCN = "EPP_APU_GEN_PWR";
-  intenON = "UFC_INTEN";
+  strcpy(mastCautReset, "UFC_MASTER_CAUTION");
+  strcpy(spcAP, "UFC_SPC");
+  strcpy(clrIFF, "UFC_CLR");
+  strcpy(altTCN, "UFC_ALT_ALRT");
+  strcpy(cm2ILS, "EPP_BATTERY_PWR");
+  strcpy(eccmDL, "EPP_INVERTER");
+  strcpy(idmBCN, "EPP_APU_GEN_PWR");
+  strcpy(intenON, "UFC_INTEN");
   DcsBios::LED masterCaution(0x1012, 0x0800, 12);
 }
 
 void setF18()
 {
-  AC = "F18";
+  strcpy(AC, "F18");
   digitalWrite(led, LOW);
-  mastCautReset = "MASTER_CAUTION_RESET_SW";
-  spcAP = "UFC_AP";
-  clrIFF = "UFC_IFF";
-  altTCN = "UFC_TCN";
-  cm2ILS = "UFC_ILS";
-  eccmDL = "UFC_DL";
-  idmBCN = "UFC_BCN";
-  intenON = "UFC_ONOFF";
+  strcpy(mastCautReset, "MASTER_CAUTION_RESET_SW");
+  strcpy(spcAP, "UFC_AP");
+  strcpy(clrIFF, "UFC_IFF");
+  strcpy(altTCN, "UFC_TCN");
+  strcpy(cm2ILS, "UFC_ILS");
+  strcpy(eccmDL, "UFC_DL");
+  strcpy(idmBCN, "UFC_BCN");
+  strcpy(intenON, "UFC_ONOFF");
   DcsBios::LED masterCaution(0x5400, 0x0200, 12);
 }
 
 void setup()
 {
-  pinMode(13, OUTPUT);
+  pinMode(led, OUTPUT);
   pinMode(A3, INPUT_PULLUP);
   sState = digitalRead(A3);
   if (sState) {
@@ -103,7 +104,7 @@ void keypadEvent(KeypadEvent KEY) {
   switch (kpd.getState()) { // gives PRESSED, HOLD or RELEASED
     case PRESSED:
       switch (KEY) {
-        //UFC
+        //CDU
         case 'S': sendDcsBiosMessage("UFC_STEER", "2"); break;
         case 's': sendDcsBiosMessage("UFC_STEER", "0"); break;
         case '1': sendDcsBiosMessage("UFC_1", "1"); break;
@@ -182,7 +183,7 @@ void keypadEvent(KeypadEvent KEY) {
   switch (kpd.getState()) { // gives PRESSED, HOLD or RELEASED
     case RELEASED: // LMFD
       switch (KEY) { // Released KEYs or Neutral Rockers signal is sent
-        //UFC
+        //CDU
         case 'S': sendDcsBiosMessage("UFC_STEER", "1"); break;
         case 's': sendDcsBiosMessage("UFC_STEER", "1"); break;
         case '1': sendDcsBiosMessage("UFC_1", "0"); break;
