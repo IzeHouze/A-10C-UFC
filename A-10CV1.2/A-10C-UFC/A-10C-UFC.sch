@@ -15,7 +15,7 @@ Comment3 ""
 Comment4 ""
 $EndDescr
 $Comp
-L Switch:SW_Push SW1
+L A-10C-UFC-rescue:SW_Push-Switch SW1
 U 1 1 5D362DF4
 P 1950 1650
 F 0 "SW1" H 1950 1935 50  0000 C CNN
@@ -26,7 +26,7 @@ F 3 "~" H 1950 1850 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Switch:SW_Push SW7
+L A-10C-UFC-rescue:SW_Push-Switch SW7
 U 1 1 5D36336E
 P 2650 1650
 F 0 "SW7" H 2650 1935 50  0000 C CNN
@@ -37,7 +37,7 @@ F 3 "~" H 2650 1850 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Switch:SW_Push SW13
+L A-10C-UFC-rescue:SW_Push-Switch SW13
 U 1 1 5D3639C9
 P 3350 1650
 F 0 "SW13" H 3350 1935 50  0000 C CNN
@@ -48,7 +48,7 @@ F 3 "~" H 3350 1850 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Switch:SW_Push SW19
+L A-10C-UFC-rescue:SW_Push-Switch SW19
 U 1 1 5D363AC3
 P 4050 1650
 F 0 "SW19" H 4050 1935 50  0000 C CNN
@@ -59,7 +59,7 @@ F 3 "~" H 4050 1850 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Switch:SW_Push SW25
+L A-10C-UFC-rescue:SW_Push-Switch SW25
 U 1 1 5D363C5F
 P 4750 1650
 F 0 "SW25" H 4750 1935 50  0000 C CNN
@@ -70,7 +70,7 @@ F 3 "~" H 4750 1850 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Switch:SW_Push SW31
+L A-10C-UFC-rescue:SW_Push-Switch SW31
 U 1 1 5D363EE9
 P 5450 1650
 F 0 "SW31" H 5450 1935 50  0000 C CNN
@@ -81,7 +81,7 @@ F 3 "~" H 5450 1850 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Switch:SW_Push SW2
+L A-10C-UFC-rescue:SW_Push-Switch SW2
 U 1 1 5D36DD6D
 P 1950 2250
 F 0 "SW2" H 1950 2535 50  0000 C CNN
@@ -92,7 +92,7 @@ F 3 "~" H 1950 2450 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Switch:SW_Push SW8
+L A-10C-UFC-rescue:SW_Push-Switch SW8
 U 1 1 5D36DD73
 P 2650 2250
 F 0 "SW8" H 2650 2535 50  0000 C CNN
@@ -103,7 +103,7 @@ F 3 "~" H 2650 2450 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Switch:SW_Push SW14
+L A-10C-UFC-rescue:SW_Push-Switch SW14
 U 1 1 5D36DD79
 P 3350 2250
 F 0 "SW14" H 3350 2535 50  0000 C CNN
@@ -114,7 +114,7 @@ F 3 "~" H 3350 2450 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Switch:SW_Push SW20
+L A-10C-UFC-rescue:SW_Push-Switch SW20
 U 1 1 5D36DD7F
 P 4050 2250
 F 0 "SW20" H 4050 2535 50  0000 C CNN
@@ -125,7 +125,7 @@ F 3 "~" H 4050 2450 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Switch:SW_Push SW26
+L A-10C-UFC-rescue:SW_Push-Switch SW26
 U 1 1 5D36DD85
 P 4750 2250
 F 0 "SW26" H 4750 2535 50  0000 C CNN
@@ -136,7 +136,7 @@ F 3 "~" H 4750 2450 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Switch:SW_Push SW32
+L A-10C-UFC-rescue:SW_Push-Switch SW32
 U 1 1 5D36DD8B
 P 5450 2250
 F 0 "SW32" H 5450 2535 50  0000 C CNN
@@ -147,7 +147,7 @@ F 3 "~" H 5450 2450 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Switch:SW_Push SW3
+L A-10C-UFC-rescue:SW_Push-Switch SW3
 U 1 1 5D36F3B5
 P 1950 2900
 F 0 "SW3" H 1950 3185 50  0000 C CNN
@@ -158,7 +158,7 @@ F 3 "~" H 1950 3100 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Switch:SW_Push SW9
+L A-10C-UFC-rescue:SW_Push-Switch SW9
 U 1 1 5D36F3BB
 P 2650 2900
 F 0 "SW9" H 2650 3185 50  0000 C CNN
@@ -169,7 +169,7 @@ F 3 "~" H 2650 3100 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Switch:SW_Push SW15
+L A-10C-UFC-rescue:SW_Push-Switch SW15
 U 1 1 5D36F3C1
 P 3350 2900
 F 0 "SW15" H 3350 3185 50  0000 C CNN
@@ -180,7 +180,7 @@ F 3 "~" H 3350 3100 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Switch:SW_Push SW21
+L A-10C-UFC-rescue:SW_Push-Switch SW21
 U 1 1 5D36F3C7
 P 4050 2900
 F 0 "SW21" H 4050 3185 50  0000 C CNN
@@ -191,7 +191,7 @@ F 3 "~" H 4050 3100 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Switch:SW_Push SW27
+L A-10C-UFC-rescue:SW_Push-Switch SW27
 U 1 1 5D36F3CD
 P 4750 2900
 F 0 "SW27" H 4750 3185 50  0000 C CNN
@@ -202,7 +202,7 @@ F 3 "~" H 4750 3100 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Switch:SW_Push SW33
+L A-10C-UFC-rescue:SW_Push-Switch SW33
 U 1 1 5D36F3D3
 P 5450 2900
 F 0 "SW33" H 5450 3185 50  0000 C CNN
@@ -213,7 +213,7 @@ F 3 "~" H 5450 3100 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Switch:SW_Push SW4
+L A-10C-UFC-rescue:SW_Push-Switch SW4
 U 1 1 5D371E17
 P 1950 3500
 F 0 "SW4" H 1950 3785 50  0000 C CNN
@@ -224,7 +224,7 @@ F 3 "~" H 1950 3700 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Switch:SW_Push SW10
+L A-10C-UFC-rescue:SW_Push-Switch SW10
 U 1 1 5D371E1D
 P 2650 3500
 F 0 "SW10" H 2650 3785 50  0000 C CNN
@@ -235,7 +235,7 @@ F 3 "~" H 2650 3700 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Switch:SW_Push SW16
+L A-10C-UFC-rescue:SW_Push-Switch SW16
 U 1 1 5D371E23
 P 3350 3500
 F 0 "SW16" H 3350 3785 50  0000 C CNN
@@ -246,7 +246,7 @@ F 3 "~" H 3350 3700 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Switch:SW_Push SW22
+L A-10C-UFC-rescue:SW_Push-Switch SW22
 U 1 1 5D371E29
 P 4050 3500
 F 0 "SW22" H 4050 3785 50  0000 C CNN
@@ -257,7 +257,7 @@ F 3 "~" H 4050 3700 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Switch:SW_Push SW28
+L A-10C-UFC-rescue:SW_Push-Switch SW28
 U 1 1 5D371E2F
 P 4750 3500
 F 0 "SW28" H 4750 3785 50  0000 C CNN
@@ -268,7 +268,7 @@ F 3 "~" H 4750 3700 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Switch:SW_Push SW34
+L A-10C-UFC-rescue:SW_Push-Switch SW34
 U 1 1 5D371E35
 P 5450 3500
 F 0 "SW34" H 5450 3785 50  0000 C CNN
@@ -279,7 +279,7 @@ F 3 "~" H 5450 3700 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Switch:SW_Push SW5
+L A-10C-UFC-rescue:SW_Push-Switch SW5
 U 1 1 5D374755
 P 1950 4100
 F 0 "SW5" H 1950 4385 50  0000 C CNN
@@ -290,7 +290,7 @@ F 3 "~" H 1950 4300 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Switch:SW_Push SW11
+L A-10C-UFC-rescue:SW_Push-Switch SW11
 U 1 1 5D37475B
 P 2650 4100
 F 0 "SW11" H 2650 4385 50  0000 C CNN
@@ -301,7 +301,7 @@ F 3 "~" H 2650 4300 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Switch:SW_Push SW17
+L A-10C-UFC-rescue:SW_Push-Switch SW17
 U 1 1 5D374761
 P 3350 4100
 F 0 "SW17" H 3350 4385 50  0000 C CNN
@@ -312,7 +312,7 @@ F 3 "~" H 3350 4300 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Switch:SW_Push SW23
+L A-10C-UFC-rescue:SW_Push-Switch SW23
 U 1 1 5D374767
 P 4050 4100
 F 0 "SW23" H 4050 4385 50  0000 C CNN
@@ -323,7 +323,7 @@ F 3 "~" H 4050 4300 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Switch:SW_Push SW29
+L A-10C-UFC-rescue:SW_Push-Switch SW29
 U 1 1 5D37476D
 P 4750 4100
 F 0 "SW29" H 4750 4385 50  0000 C CNN
@@ -334,7 +334,7 @@ F 3 "~" H 4750 4300 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Switch:SW_Push SW35
+L A-10C-UFC-rescue:SW_Push-Switch SW35
 U 1 1 5D374773
 P 5450 4100
 F 0 "SW35" H 5450 4385 50  0000 C CNN
@@ -579,7 +579,7 @@ Row4
 Text Label 1150 3700 0    50   ~ 0
 Row5
 $Comp
-L Switch:SW_Push SW6
+L A-10C-UFC-rescue:SW_Push-Switch SW6
 U 1 1 5D3990F4
 P 1950 4800
 F 0 "SW6" H 1950 5085 50  0000 C CNN
@@ -590,7 +590,7 @@ F 3 "~" H 1950 5000 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Switch:SW_Push SW12
+L A-10C-UFC-rescue:SW_Push-Switch SW12
 U 1 1 5D3990FA
 P 2650 4800
 F 0 "SW12" H 2650 5085 50  0000 C CNN
@@ -601,7 +601,7 @@ F 3 "~" H 2650 5000 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Switch:SW_Push SW18
+L A-10C-UFC-rescue:SW_Push-Switch SW18
 U 1 1 5D399100
 P 3350 4800
 F 0 "SW18" H 3350 5085 50  0000 C CNN
@@ -612,7 +612,7 @@ F 3 "~" H 3350 5000 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Switch:SW_Push SW24
+L A-10C-UFC-rescue:SW_Push-Switch SW24
 U 1 1 5D399106
 P 4050 4800
 F 0 "SW24" H 4050 5085 50  0000 C CNN
@@ -623,7 +623,7 @@ F 3 "~" H 4050 5000 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Switch:SW_Push SW30
+L A-10C-UFC-rescue:SW_Push-Switch SW30
 U 1 1 5D39910C
 P 4750 4800
 F 0 "SW30" H 4750 5085 50  0000 C CNN
@@ -692,7 +692,7 @@ Col6
 Wire Wire Line
 	5650 4100 5650 5500
 $Comp
-L Connector_Generic_MountingPin:Conn_01x08_MountingPin J1
+L A-10C-UFC-rescue:Conn_01x08_MountingPin-Connector_Generic_MountingPin J1
 U 1 1 5D3E5163
 P 7600 3800
 F 0 "J1" H 7688 3668 50  0000 L CNN
@@ -703,7 +703,7 @@ F 3 "~" H 7600 3800 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Connector_Generic_MountingPin:Conn_01x10_MountingPin J2
+L A-10C-UFC-rescue:Conn_01x10_MountingPin-Connector_Generic_MountingPin J2
 U 1 1 5D3E89EE
 P 7600 5000
 F 0 "J2" H 7688 4868 50  0000 L CNN
@@ -714,7 +714,7 @@ F 3 "~" H 7600 5000 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Connector_Generic_MountingPin:Conn_01x06_MountingPin J3
+L A-10C-UFC-rescue:Conn_01x06_MountingPin-Connector_Generic_MountingPin J3
 U 1 1 5D3E9A00
 P 8900 3700
 F 0 "J3" H 8988 3568 50  0000 L CNN
@@ -811,7 +811,7 @@ F 3 "~" H 7400 1450 50  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L power:GND #PWR01
+L A-10C-UFC-rescue:GND-power #PWR01
 U 1 1 5D434D02
 P 7800 1650
 F 0 "#PWR01" H 7800 1400 50  0001 C CNN
@@ -890,7 +890,7 @@ A1
 Text Notes 8100 4000 0    50   ~ 0
 A0
 $Comp
-L Connector:Conn_01x15_Female J4
+L A-10C-UFC-rescue:Conn_01x15_Female-Connector J4
 U 1 1 5D42500E
 P 11250 1650
 F 0 "J4" H 11277 1676 50  0000 L CNN
@@ -901,7 +901,7 @@ F 3 "~" H 11250 1650 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Connector:Conn_01x15_Female J5
+L A-10C-UFC-rescue:Conn_01x15_Female-Connector J5
 U 1 1 5D4252F1
 P 11250 3350
 F 0 "J5" H 11277 3376 50  0000 L CNN
@@ -1108,7 +1108,7 @@ NoConn ~ 7000 5400
 NoConn ~ 7000 5300
 NoConn ~ 7000 5100
 $Comp
-L Connector_Generic:Conn_01x02 J7
+L A-10C-UFC-rescue:Conn_01x02-Connector_Generic J7
 U 1 1 5D473A0F
 P 11300 4750
 F 0 "J7" H 11380 4742 50  0000 L CNN
@@ -1119,7 +1119,7 @@ F 3 "~" H 11300 4750 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Connector_Generic:Conn_01x02 J8
+L A-10C-UFC-rescue:Conn_01x02-Connector_Generic J8
 U 1 1 5D473B23
 P 11300 5350
 F 0 "J8" H 11380 5342 50  0000 L CNN
@@ -1130,7 +1130,7 @@ F 3 "~" H 11300 5350 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Switch:SW_Push SW36
+L A-10C-UFC-rescue:SW_Push-Switch SW36
 U 1 1 5D473BB8
 P 10700 4750
 F 0 "SW36" H 10700 5035 50  0000 C CNN
@@ -1141,7 +1141,7 @@ F 3 "" H 10700 4950 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Switch:SW_SPST SW37
+L A-10C-UFC-rescue:SW_SPST-Switch SW37
 U 1 1 5D473C67
 P 10700 5350
 F 0 "SW37" H 10700 5585 50  0000 C CNN
@@ -1172,7 +1172,7 @@ GND
 Text Label 10900 4850 0    50   ~ 0
 GND
 $Comp
-L Connector_Generic_MountingPin:Conn_01x08_MountingPin J6
+L A-10C-UFC-rescue:Conn_01x08_MountingPin-Connector_Generic_MountingPin J6
 U 1 1 5D4991C7
 P 8900 4900
 F 0 "J6" H 8988 4770 50  0000 L CNN
