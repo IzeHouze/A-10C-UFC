@@ -37,7 +37,7 @@ Keypad kpd = Keypad( makeKeymap(keys), rowPins, colPins, ROWS, COLS );
 
 bool sState = false;
 char AC[] = "A10";
-char mastCautReset[] = "UFC_MASTER_CAUTION";
+char *mastCautReset = "UFC_MASTER_CAUTION";
 char spcAP[] = "UFC_SPC";
 char clrIFF[] = "UFC_CLR";
 char altTCN[] = "UFC_ALT_ALRT";
@@ -50,7 +50,8 @@ void setA10()
 {
   strcpy(AC , "A10");
   digitalWrite(led, HIGH);
-  strcpy(mastCautReset, "UFC_MASTER_CAUTION");
+  //strcpy(mastCautReset, "UFC_MASTER_CAUTION");
+  mastCautReset = "UFC_MASTER_CAUTION";
   strcpy(spcAP, "UFC_SPC");
   strcpy(clrIFF, "UFC_CLR");
   strcpy(altTCN, "UFC_ALT_ALRT");
@@ -65,7 +66,8 @@ void setF18()
 {
   strcpy(AC, "F18");
   digitalWrite(led, LOW);
-  strcpy(mastCautReset, "MASTER_CAUTION_RESET_SW");
+  //strcpy(mastCautReset, "MASTER_CAUTION_RESET_SW");
+  mastCautReset = "MASTER_CAUTION_RESET_SW";
   strcpy(spcAP, "UFC_AP");
   strcpy(clrIFF, "UFC_IFF");
   strcpy(altTCN, "UFC_TCN");
@@ -104,16 +106,16 @@ void keypadEvent(KeypadEvent KEY) {
   switch (kpd.getState()) { // gives PRESSED, HOLD or RELEASED
     case PRESSED:
       switch (KEY) {
-        //CDU
+        //UFC
         case 'S': sendDcsBiosMessage("UFC_STEER", "2"); break;
         case 's': sendDcsBiosMessage("UFC_STEER", "0"); break;
-        case '1': sendDcsBiosMessage("UFC_1", "1"); break;
+        case '1': sendDcsBiosMessage("UFC_1", "1"); digitalWrite(led, HIGH); break;
         case '4': sendDcsBiosMessage("UFC_4", "1"); break;
         case '7': sendDcsBiosMessage("UFC_7", "1"); break;
         case '2': sendDcsBiosMessage("UFC_2", "1"); break;
         case '5': sendDcsBiosMessage("UFC_5", "1"); break;
         case '8': sendDcsBiosMessage("UFC_8", "1"); break;
-        case '3': sendDcsBiosMessage("UFC_3", "1"); break;
+        case '3': sendDcsBiosMessage("UFC_3", "1"); digitalWrite(led, HIGH); break;
         case '6': sendDcsBiosMessage("UFC_6", "1"); break;
         case '9': sendDcsBiosMessage("UFC_9", "1"); break;
         case 'H': sendDcsBiosMessage("UFC_HACK", "1"); break;
@@ -183,16 +185,16 @@ void keypadEvent(KeypadEvent KEY) {
   switch (kpd.getState()) { // gives PRESSED, HOLD or RELEASED
     case RELEASED: // LMFD
       switch (KEY) { // Released KEYs or Neutral Rockers signal is sent
-        //CDU
+        //UFC
         case 'S': sendDcsBiosMessage("UFC_STEER", "1"); break;
         case 's': sendDcsBiosMessage("UFC_STEER", "1"); break;
-        case '1': sendDcsBiosMessage("UFC_1", "0"); break;
+        case '1': sendDcsBiosMessage("UFC_1", "0"); digitalWrite(led, LOW); break;
         case '4': sendDcsBiosMessage("UFC_4", "0"); break;
         case '7': sendDcsBiosMessage("UFC_7", "0"); break;
         case '2': sendDcsBiosMessage("UFC_2", "0"); break;
         case '5': sendDcsBiosMessage("UFC_5", "0"); break;
         case '8': sendDcsBiosMessage("UFC_8", "0"); break;
-        case '3': sendDcsBiosMessage("UFC_3", "0"); break;
+        case '3': sendDcsBiosMessage("UFC_3", "0"); digitalWrite(led, LOW); break;
         case '6': sendDcsBiosMessage("UFC_6", "0"); break;
         case '9': sendDcsBiosMessage("UFC_9", "0"); break;
         case 'H': sendDcsBiosMessage("UFC_HACK", "0"); break;
