@@ -109,13 +109,13 @@ void keypadEvent(KeypadEvent KEY) {
         //UFC
         case 'S': sendDcsBiosMessage("UFC_STEER", "2"); break;
         case 's': sendDcsBiosMessage("UFC_STEER", "0"); break;
-        case '1': sendDcsBiosMessage("UFC_1", "1"); digitalWrite(led, HIGH); break;
+        case '1': sendDcsBiosMessage("UFC_1", "1"); break;
         case '4': sendDcsBiosMessage("UFC_4", "1"); break;
         case '7': sendDcsBiosMessage("UFC_7", "1"); break;
         case '2': sendDcsBiosMessage("UFC_2", "1"); break;
         case '5': sendDcsBiosMessage("UFC_5", "1"); break;
         case '8': sendDcsBiosMessage("UFC_8", "1"); break;
-        case '3': sendDcsBiosMessage("UFC_3", "1"); digitalWrite(led, HIGH); break;
+        case '3': sendDcsBiosMessage("UFC_3", "1"); break;
         case '6': sendDcsBiosMessage("UFC_6", "1"); break;
         case '9': sendDcsBiosMessage("UFC_9", "1"); break;
         case 'H': sendDcsBiosMessage("UFC_HACK", "1"); break;
@@ -188,13 +188,13 @@ void keypadEvent(KeypadEvent KEY) {
         //UFC
         case 'S': sendDcsBiosMessage("UFC_STEER", "1"); break;
         case 's': sendDcsBiosMessage("UFC_STEER", "1"); break;
-        case '1': sendDcsBiosMessage("UFC_1", "0"); digitalWrite(led, LOW); break;
+        case '1': sendDcsBiosMessage("UFC_1", "0"); break;
         case '4': sendDcsBiosMessage("UFC_4", "0"); break;
         case '7': sendDcsBiosMessage("UFC_7", "0"); break;
         case '2': sendDcsBiosMessage("UFC_2", "0"); break;
         case '5': sendDcsBiosMessage("UFC_5", "0"); break;
         case '8': sendDcsBiosMessage("UFC_8", "0"); break;
-        case '3': sendDcsBiosMessage("UFC_3", "0"); digitalWrite(led, LOW); break;
+        case '3': sendDcsBiosMessage("UFC_3", "0"); break;
         case '6': sendDcsBiosMessage("UFC_6", "0"); break;
         case '9': sendDcsBiosMessage("UFC_9", "0"); break;
         case 'H': sendDcsBiosMessage("UFC_HACK", "0"); break;
