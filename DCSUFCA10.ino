@@ -37,7 +37,7 @@ Keypad kpd = Keypad( makeKeymap(keys), rowPins, colPins, ROWS, COLS );
 
 bool sState = false;
 char AC[] = "A10";
-char *mastCautReset = "UFC_MASTER_CAUTION";
+char mastCautReset[] = "MASTER_CAUTION_RESET_SW";
 char spcAP[] = "UFC_SPC";
 char clrIFF[] = "UFC_CLR";
 char altTCN[] = "UFC_ALT_ALRT";
@@ -46,12 +46,24 @@ char eccmDL[] = "EPP_INVERTER";
 char idmBCN[] = "EPP_APU_GEN_PWR";
 char intenON[] = "UFC_INTEN";
 
+void flash(int count)
+{
+  pinMode(12,OUTPUT);
+  for (int i = 0; i < count; i++)
+  {
+    digitalWrite(12,HIGH);
+    delay(500);
+    digitalWrite(12,LOW);
+    delay(500);
+  }
+}
+
 void setA10()
 {
+  flash(2);
   strcpy(AC , "A10");
   digitalWrite(led, HIGH);
-  //strcpy(mastCautReset, "UFC_MASTER_CAUTION");
-  mastCautReset = "UFC_MASTER_CAUTION";
+  strcpy(mastCautReset, "UFC_MASTER_CAUTION");
   strcpy(spcAP, "UFC_SPC");
   strcpy(clrIFF, "UFC_CLR");
   strcpy(altTCN, "UFC_ALT_ALRT");
@@ -64,10 +76,10 @@ void setA10()
 
 void setF18()
 {
+  flash(4);
   strcpy(AC, "F18");
   digitalWrite(led, LOW);
-  //strcpy(mastCautReset, "MASTER_CAUTION_RESET_SW");
-  mastCautReset = "MASTER_CAUTION_RESET_SW";
+  strcpy(mastCautReset, "MASTER_CAUTION_RESET_SW");
   strcpy(spcAP, "UFC_AP");
   strcpy(clrIFF, "UFC_IFF");
   strcpy(altTCN, "UFC_TCN");
