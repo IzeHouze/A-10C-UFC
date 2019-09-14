@@ -40,6 +40,7 @@ char AC[] = "A10";
 char mastCautReset[] = "MASTER_CAUTION_RESET_SW";
 char spcAP[] = "UFC_SPC";
 char clrIFF[] = "UFC_CLR";
+char strClr[] = "UFC_STEER";
 char altTCN[] = "UFC_ALT_ALRT";
 char cm2ILS[] = "EPP_BATTERY_PWR";
 char eccmDL[] = "EPP_INVERTER";
@@ -67,6 +68,7 @@ void setA10()
   strcpy(mastCautReset, "UFC_MASTER_CAUTION");
   strcpy(spcAP, "UFC_SPC");
   strcpy(clrIFF, "UFC_CLR");
+  strcpy(strClr, "UFC_STEER");
   strcpy(altTCN, "UFC_ALT_ALRT");
   strcpy(cm2ILS, "EPP_BATTERY_PWR");
   strcpy(eccmDL, "EPP_INVERTER");
@@ -83,6 +85,7 @@ void setF18()
   strcpy(mastCautReset, "MASTER_CAUTION_RESET_SW");
   strcpy(spcAP, "UFC_AP");
   strcpy(clrIFF, "UFC_IFF");
+  strcpy(strClr, "UFC_CLR");
   strcpy(altTCN, "UFC_TCN");
   strcpy(cm2ILS, "UFC_ILS");
   strcpy(eccmDL, "UFC_DL");
@@ -121,7 +124,16 @@ void keypadEvent(KeypadEvent KEY) {
       switch (KEY) {
         //UFC
         case 'S': sendDcsBiosMessage("UFC_STEER", "2"); break;
-        case 's': sendDcsBiosMessage("UFC_STEER", "0"); break;
+        case 's': {
+            if (strcmp(AC, "A10") == 0) {
+              sendDcsBiosMessage(strClr, "0");
+              break;
+            }
+            else {
+              sendDcsBiosMessage(strClr, "1");
+              break;
+            }
+          }        
         case '1': sendDcsBiosMessage("UFC_1", "1"); break;
         case '4': sendDcsBiosMessage("UFC_4", "1"); break;
         case '7': sendDcsBiosMessage("UFC_7", "1"); break;
@@ -200,7 +212,16 @@ void keypadEvent(KeypadEvent KEY) {
       switch (KEY) { // Released KEYs or Neutral Rockers signal is sent
         //UFC
         case 'S': sendDcsBiosMessage("UFC_STEER", "1"); break;
-        case 's': sendDcsBiosMessage("UFC_STEER", "1"); break;
+        case 's': {
+            if (strcmp(AC, "A10") == 0) {
+              sendDcsBiosMessage(strClr, "1");
+              break;
+            }
+            else {
+              sendDcsBiosMessage(strClr, "0");
+              break;
+            }
+          }        
         case '1': sendDcsBiosMessage("UFC_1", "0"); break;
         case '4': sendDcsBiosMessage("UFC_4", "0"); break;
         case '7': sendDcsBiosMessage("UFC_7", "0"); break;
