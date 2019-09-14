@@ -60,6 +60,7 @@ void flash(int count)
 
 void setA10()
 {
+  //Variables below function as a way to alter button functions based on the AC Mode Selected.
   flash(2);
   strcpy(AC , "A10");
   digitalWrite(led, HIGH);
