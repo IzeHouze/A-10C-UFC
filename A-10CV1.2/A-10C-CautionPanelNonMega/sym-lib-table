@@ -1,0 +1,12 @@
+(sym_lib_table
+  (lib (name Driver_LED)(type Legacy)(uri ${KICAD_SYMBOL_DIR}/Driver_LED.lib)(options "")(descr ""))
+  (lib (name Driver_Display)(type Legacy)(uri ${KICAD_SYMBOL_DIR}/Driver_Display.lib)(options "")(descr ""))
+  (lib (name Transistor_Array)(type Legacy)(uri ${KICAD_SYMBOL_DIR}/Transistor_Array.lib)(options "")(descr ""))
+  (lib (name Connector_Generic)(type Legacy)(uri ${KICAD_SYMBOL_DIR}/Connector_Generic.lib)(options "")(descr ""))
+  (lib (name power)(type Legacy)(uri ${KICAD_SYMBOL_DIR}/power.lib)(options "")(descr ""))
+  (lib (name Device)(type Legacy)(uri ${KICAD_SYMBOL_DIR}/Device.lib)(options "")(descr ""))
+  (lib (name Regulator_Linear)(type Legacy)(uri ${KICAD_SYMBOL_DIR}/Regulator_Linear.lib)(options "")(descr ""))
+  (lib (name Connector)(type Legacy)(uri ${KICAD_SYMBOL_DIR}/Connector.lib)(options "")(descr ""))
+  (lib (name Transistor_BJT)(type Legacy)(uri ${KICAD_SYMBOL_DIR}/Transistor_BJT.lib)(options "")(descr ""))
+  (lib (name A-10C-CautionPanelNonMega-rescue)(type Legacy)(uri ${KIPRJMOD}/A-10C-CautionPanelNonMega-rescue.lib)(options "")(descr ""))
+)
