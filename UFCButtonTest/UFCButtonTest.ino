@@ -32,7 +32,7 @@ Keypad kpd = Keypad( makeKeymap(keys), rowPins, colPins, ROWS, COLS );
 
 void setup()
 {
-  pinMode(led,OUTPUT);
+  pinMode(led, OUTPUT);
   kpd.addEventListener(keypadEvent);  // Add an event listener.
   kpd.setHoldTime(100);               // Default is 1000mS
   kpd.setDebounceTime(50);           // Default is 50mS
@@ -49,16 +49,16 @@ void keypadEvent(KeypadEvent KEY) {
       switch (KEY) {
 
         case 'Z': true; break;
-        default: digitalWrite(led,HIGH); break;
-          }
+        default: digitalWrite(led, HIGH); break;
+      }
 
   }
 
-  switch (kpd.getState()) { 
-    case RELEASED: 
-      switch (KEY) { 
+  switch (kpd.getState()) {
+    case RELEASED:
+      switch (KEY) {
         case 'Z': true; break;
-        default: digitalWrite(led,LOW); break;
+        default: digitalWrite(led, LOW); break;
       }
   }
 }

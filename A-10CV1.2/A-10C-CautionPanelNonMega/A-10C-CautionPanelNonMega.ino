@@ -7,7 +7,6 @@
 */
 #define DCSBIOS_DEFAULT_SERIAL
 #include "DcsBios.h"
-#include "internal/ExportStreamListener.h"
 
 byte dataPin[8] = {10,9,8,7,6,5,4,2};
 byte pwmPin = 3;
@@ -15,22 +14,17 @@ byte clockBit = 11;
 byte clockPulse = 12;
 byte sensorPin = A0;
 byte oePin = A1;
-unsigned int cautionLights[3] = {0,0,0};
-
 
 void setup() {
-  // put your setup code here, to run once:
-  pinMode(clockBit,OUTPUT);
-  pinMode(clockPulse,OUTPUT);
   pinMode(oePin,OUTPUT);
-  for (int i=0;i<8;i++) {
-    pinMode(dataPin[i],OUTPUT);
+  for (int i=2;i<12;i++) {
+    pinMode(i,OUTPUT);
   }
   DcsBios::setup();
 }
 
 void updateCautionLights(unsigned int address, unsigned int data) {
-    unsigned char row = (address - 1) * 2;
+    unsigned char row = (address - 0x10d4) * 2;
     unsigned char column = 0;
     unsigned char i;
     bool is_on;
@@ -46,7 +40,7 @@ void updateCautionLights(unsigned int address, unsigned int data) {
            column = 0;
         }
         bitID--;
-        if (bitID == -1) {    //Register full, write data
+        if (bitID == -1) {    //Register full, set pulse for shift register.  Will be ready for output latch 0 (of 6) if no other actions taken.
           digitalWrite(clockBit,HIGH);
           digitalWrite(clockPulse,HIGH);
           digitalWrite(clockPulse,LOW);
@@ -58,84 +52,31 @@ void updateCautionLights(unsigned int address, unsigned int data) {
             digitalWrite(clockPulse,LOW);
             c++;
           }
-          digitalWrite(oePin,HIGH);
+          digitalWrite(oePin,HIGH); //Enable output latch to accept values.
           digitalWrite(oePin,LOW);
           bitID = 7;
         }
     }
 }
 
-void onClA1Change(unsigned int  newValue) {
-  if (newValue == 1){
-    cautionLights[0] |= 0x0001;
-  }
-  else {
-    cautionLights[0] &= ~0x0001;
-  }
-  updateCautionLights(1,cautionLights[0]);
+void onClAUpdate(unsigned int updatedValues) {
+  updateCautionLights(0x10d4,updatedValues);
 }
-DcsBios::IntegerBuffer clA1Buffer(0x10d4, 0x0001, 0, onClA1Change);
 
-void onClA2Change(unsigned int  newValue) {
-  if (newValue == 1){
-    cautionLights[0] |= 0x0002;
-  }
-  else {
-    cautionLights[0] &= ~0x0002;
-  }
-  updateCautionLights(1,cautionLights[0]);
+void onClBUpdate(unsigned int updatedValues) {
+  updateCautionLights(0x10d6,updatedValues);
 }
-DcsBios::IntegerBuffer clA2Buffer(0x10d4, 0x0002, 1, onClA2Change);
 
-void onClA3Change(unsigned int  newValue) {
-  if (newValue == 1){
-    cautionLights[0] |= 0x0004;
-  }
-  else {
-    cautionLights[0] &= ~0x0004;
-  }
-  updateCautionLights(1,cautionLights[0]);
+void onClCUpdate(unsigned int updatedValues) {
+  updateCautionLights(0x10d8,updatedValues);
 }
-DcsBios::IntegerBuffer clA3Buffer(0x10d4, 0x0004, 2, onClA3Change);
 
-void onClA4Change(unsigned int  newValue) {
-  if (newValue == 1){
-    cautionLights[0] |= 0x0008;
-  }
-  else {
-    cautionLights[0] &= ~0x0008;
-  }
-  updateCautionLights(1,cautionLights[0]);
-}
-DcsBios::IntegerBuffer clA4Buffer(0x10d4, 0x0008, 3, onClA4Change);
-
-
-
-void onClC3Change(unsigned int  newValue) {
-  if (newValue == 1){
-    cautionLights[0] |= 0x0400;
-  }
-  else {
-    cautionLights[0] &= ~0x0400;
-  }
-  updateCautionLights(1,cautionLights[0]);
-}
-DcsBios::IntegerBuffer clC3Buffer(0x10d4, 0x0400, 10, onClC3Change);
-
-void onClD1Change(unsigned int  newValue) {
-  if (newValue == 1){
-    cautionLights[0] |= 0x1000;
-  }
-  else {
-    cautionLights[0] &= ~0x1000;
-  }
-  updateCautionLights(1,cautionLights[0]);
-}
-DcsBios::IntegerBuffer clD1Buffer(0x10d4, 0x1000, 12, onClD1Change);
-
+  DcsBios::IntegerBuffer cautionLightsA( 0x10d4, 0xffff, 0, onClAUpdate );
+  DcsBios::IntegerBuffer cautionLightsB( 0x10d6, 0xffff, 0, onClBUpdate );
+  DcsBios::IntegerBuffer cautionLightsC( 0x10d8, 0xffff, 0, onClCUpdate );
+  
 void loop() {
   // put your main code here, to run repeatedly:
   analogWrite(pwmPin,map(analogRead(sensorPin), 0, 1023, 0, 255));
-  //updateCautionLights(0x10d4,0x00b0);
   DcsBios::loop();
 }
