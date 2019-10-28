@@ -2118,71 +2118,42 @@ Wire Wire Line
 	1700 5950 1900 5950
 NoConn ~ 1700 6050
 NoConn ~ 1700 6150
-Entry Wire Line
-	1900 5450 2000 5550
-Entry Wire Line
-	1900 5550 2000 5650
-Entry Wire Line
-	1900 5650 2000 5750
-Entry Wire Line
-	1900 5750 2000 5850
-Entry Wire Line
-	1900 5850 2000 5950
-Entry Wire Line
-	1900 5950 2000 6050
 Text Label 1750 5450 0    50   ~ 0
-CP0
+CPP0
 Text Label 1750 5550 0    50   ~ 0
-CP1
+CPP1
 Text Label 1750 5650 0    50   ~ 0
-CP2
+CPP2
 Text Label 1750 5750 0    50   ~ 0
-CP3
+CPP3
 Text Label 1750 5850 0    50   ~ 0
-CP4
+CPP4
 Text Label 1750 5950 0    50   ~ 0
-CP5
+CPP5
 Wire Wire Line
 	3650 5900 3450 5900
-Entry Wire Line
-	3350 5800 3450 5900
 Text Label 3500 5900 0    50   ~ 0
 CP2
 Wire Wire Line
 	3650 2250 3450 2250
-Entry Wire Line
-	3350 2150 3450 2250
 Text Label 3500 2250 0    50   ~ 0
 CP0
 Wire Wire Line
 	3650 4050 3450 4050
-Entry Wire Line
-	3350 3950 3450 4050
 Text Label 3500 4050 0    50   ~ 0
 CP1
 Wire Wire Line
 	6400 1950 6200 1950
-Entry Wire Line
-	6100 1850 6200 1950
 Text Label 6250 1950 0    50   ~ 0
 CP3
 Wire Wire Line
 	6400 3750 6200 3750
-Entry Wire Line
-	6100 3650 6200 3750
 Text Label 6250 3750 0    50   ~ 0
 CP4
 Wire Wire Line
 	6400 5550 6200 5550
-Entry Wire Line
-	6100 5450 6200 5550
 Text Label 6250 5550 0    50   ~ 0
 CP5
-Wire Bus Line
-	2000 6500 3350 6500
-Wire Bus Line
-	3350 6500 6100 6500
-Connection ~ 3350 6500
 Wire Wire Line
 	6400 5650 6400 5950
 Wire Wire Line
@@ -2380,7 +2351,6 @@ $EndComp
 NoConn ~ 2550 5450
 NoConn ~ 3550 7350
 NoConn ~ 3650 7350
-NoConn ~ 3950 7350
 NoConn ~ 4050 7350
 NoConn ~ 4150 7350
 NoConn ~ 4250 7350
@@ -2390,7 +2360,7 @@ NoConn ~ 4550 7350
 NoConn ~ 4650 7350
 NoConn ~ 4750 7350
 Text Notes 10750 2550 0    50   ~ 0
-In a loop, set pins D0-D7 (DP2,4,5,6,7,8,9,10) to represent \n2 rows of caution lights, from Right to Left\nCode will run from D7 to D0\nSet DP11 high\nTrigger clock by setting DP12 High and values will be loaded \ninto first latch register, which will drive associated Darlington\narrays to sink power for LEDs.\nSet DP11 and 12 low.\nSet next 8 lights\nLeave DP11 low\nTrigger clock by setting DP12 High and values will be loaded \ninto second latch register.\nSet DP12 low.\nRepeat load then clock for remaining 4 sets of 8.\n\n9V @ 2A power supply required, but it will also power \nNano as well.\n\nLED source current will be PWM modulated via\ntransistors controlled from DP3 (pin 6)\n\nProvisions for RX-485 on Nano PD0-PD1 (RX-TX)
+In a loop, set pins D0-D7 (DP2,4,5,6,7,8,9,10) to represent \n2 rows of caution lights, from Right to Left\nCode will run from D7 to D0\nSet DP11 high\nTrigger clock by setting DP12 High and values will be loaded \ninto first latch register, which will drive associated Darlington\narrays to sink power for LEDs.\nSet DP11 and 12 low.\nSet next 8 lights\nLeave DP11 low\nTrigger clock by setting DP12 High and values will be loaded \ninto second latch register.\nSet DP12 low.\nRepeat load then clock for remaining 4 sets of 8.\n\n9V @ 2A power supply required, but it will also power \nNano as well.\n\nLED source current will be PWM modulated via\ntransistors controlled from DP3 (pin 6)\n\nProvisions for RS-485 on Nano PD0-PD1 (RX-TX)
 Wire Wire Line
 	2550 5250 2750 5250
 Wire Wire Line
@@ -2405,7 +2375,7 @@ U 1 1 5DFBAF06
 P 8100 7350
 F 0 "J4" H 8180 7342 50  0000 L CNN
 F 1 "Serial Tx/Rx" H 8180 7251 50  0000 L CNN
-F 2 "" H 8100 7350 50  0001 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 8100 7350 50  0001 C CNN
 F 3 "~" H 8100 7350 50  0001 C CNN
 	1    8100 7350
 	1    0    0    -1  
@@ -2414,12 +2384,198 @@ Wire Wire Line
 	7900 7350 7600 7350
 Wire Wire Line
 	7900 7450 7600 7450
-Wire Bus Line
-	3350 2150 3350 6500
-Wire Bus Line
-	6100 1850 6100 6500
-Wire Bus Line
-	2000 5550 2000 6500
+Text Label 7700 7350 0    50   ~ 0
+TX
+Text Label 7700 7450 0    50   ~ 0
+RX
+$Comp
+L 74xx:74LS08 U15
+U 1 1 5DB94172
+P 11200 3100
+F 0 "U15" H 11200 3425 50  0000 C CNN
+F 1 "74LS08" H 11200 3334 50  0000 C CNN
+F 2 "Package_DIP:DIP-14_W7.62mm" H 11200 3100 50  0001 C CNN
+F 3 "http://www.ti.com/lit/gpn/sn74LS08" H 11200 3100 50  0001 C CNN
+	1    11200 3100
+	1    0    0    -1  
+$EndComp
+$Comp
+L 74xx:74LS08 U15
+U 2 1 5DB9F551
+P 12350 3100
+F 0 "U15" H 12350 3425 50  0000 C CNN
+F 1 "74LS08" H 12350 3334 50  0000 C CNN
+F 2 "Package_DIP:DIP-14_W7.62mm" H 12350 3100 50  0001 C CNN
+F 3 "http://www.ti.com/lit/gpn/sn74LS08" H 12350 3100 50  0001 C CNN
+	2    12350 3100
+	1    0    0    -1  
+$EndComp
+$Comp
+L 74xx:74LS08 U15
+U 3 1 5DBA130A
+P 11200 3700
+F 0 "U15" H 11200 4025 50  0000 C CNN
+F 1 "74LS08" H 11200 3934 50  0000 C CNN
+F 2 "Package_DIP:DIP-14_W7.62mm" H 11200 3700 50  0001 C CNN
+F 3 "http://www.ti.com/lit/gpn/sn74LS08" H 11200 3700 50  0001 C CNN
+	3    11200 3700
+	1    0    0    -1  
+$EndComp
+$Comp
+L 74xx:74LS08 U15
+U 4 1 5DBA2DB5
+P 12350 3700
+F 0 "U15" H 12350 4025 50  0000 C CNN
+F 1 "74LS08" H 12350 3934 50  0000 C CNN
+F 2 "Package_DIP:DIP-14_W7.62mm" H 12350 3700 50  0001 C CNN
+F 3 "http://www.ti.com/lit/gpn/sn74LS08" H 12350 3700 50  0001 C CNN
+	4    12350 3700
+	1    0    0    -1  
+$EndComp
+$Comp
+L 74xx:74LS08 U16
+U 1 1 5DBA5072
+P 11200 4350
+F 0 "U16" H 11200 4675 50  0000 C CNN
+F 1 "74LS08" H 11200 4584 50  0000 C CNN
+F 2 "Package_DIP:DIP-14_W7.62mm" H 11200 4350 50  0001 C CNN
+F 3 "http://www.ti.com/lit/gpn/sn74LS08" H 11200 4350 50  0001 C CNN
+	1    11200 4350
+	1    0    0    -1  
+$EndComp
+$Comp
+L 74xx:74LS08 U16
+U 2 1 5DBA7423
+P 12350 4350
+F 0 "U16" H 12350 4675 50  0000 C CNN
+F 1 "74LS08" H 12350 4584 50  0000 C CNN
+F 2 "Package_DIP:DIP-14_W7.62mm" H 12350 4350 50  0001 C CNN
+F 3 "http://www.ti.com/lit/gpn/sn74LS08" H 12350 4350 50  0001 C CNN
+	2    12350 4350
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	10900 3000 10700 3000
+Wire Wire Line
+	10900 3200 10700 3200
+Wire Wire Line
+	10900 3600 10700 3600
+Wire Wire Line
+	10900 3800 10700 3800
+Wire Wire Line
+	10900 4250 10700 4250
+Wire Wire Line
+	10900 4450 10700 4450
+Wire Wire Line
+	12050 3000 11800 3000
+Wire Wire Line
+	12050 3200 11800 3200
+Wire Wire Line
+	12050 3600 11800 3600
+Wire Wire Line
+	12050 3800 11800 3800
+Wire Wire Line
+	12050 4250 11800 4250
+Wire Wire Line
+	12050 4450 11800 4450
+Wire Wire Line
+	11500 3100 11700 3100
+Wire Wire Line
+	11500 3700 11700 3700
+Wire Wire Line
+	11500 4350 11700 4350
+Wire Wire Line
+	12650 3100 12850 3100
+Wire Wire Line
+	12650 3700 12850 3700
+Wire Wire Line
+	12650 4350 12850 4350
+Text Label 11550 3100 0    50   ~ 0
+CP0
+Text Label 12700 3100 0    50   ~ 0
+CP1
+Text Label 11550 3700 0    50   ~ 0
+CP2
+Text Label 12650 3700 0    50   ~ 0
+CP3
+Text Label 11550 4350 0    50   ~ 0
+CP4
+Text Label 12700 4350 0    50   ~ 0
+CP5
+Wire Wire Line
+	3950 7350 3950 7050
+Text Label 3950 7250 1    50   ~ 0
+CE
+Text Label 10800 3000 0    50   ~ 0
+CE
+Text Label 11900 3000 0    50   ~ 0
+CE
+Text Label 10800 3600 0    50   ~ 0
+CE
+Text Label 10800 4250 0    50   ~ 0
+CE
+Text Label 11900 3600 0    50   ~ 0
+CE
+Text Label 11900 4250 0    50   ~ 0
+CE
+Text Label 10700 3200 0    50   ~ 0
+CPP0
+Text Label 11800 3200 0    50   ~ 0
+CPP1
+Text Label 10700 3800 0    50   ~ 0
+CPP2
+Text Label 11800 3800 0    50   ~ 0
+CPP3
+Text Label 10700 4450 0    50   ~ 0
+CPP4
+Text Label 11800 4450 0    50   ~ 0
+CPP5
+$Comp
+L 74xx:74LS08 U15
+U 5 1 5E767546
+P 11700 5050
+F 0 "U15" V 11333 5050 50  0000 C CNN
+F 1 "74LS08" V 11424 5050 50  0000 C CNN
+F 2 "" H 11700 5050 50  0001 C CNN
+F 3 "http://www.ti.com/lit/gpn/sn74LS08" H 11700 5050 50  0001 C CNN
+	5    11700 5050
+	0    1    1    0   
+$EndComp
+$Comp
+L 74xx:74LS08 U16
+U 5 1 5E76A619
+P 11700 5700
+F 0 "U16" V 11333 5700 50  0000 C CNN
+F 1 "74LS08" V 11424 5700 50  0000 C CNN
+F 2 "" H 11700 5700 50  0001 C CNN
+F 3 "http://www.ti.com/lit/gpn/sn74LS08" H 11700 5700 50  0001 C CNN
+	5    11700 5700
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	11200 5050 11000 5050
+Wire Wire Line
+	11000 5050 11000 5700
+Wire Wire Line
+	11000 5700 11200 5700
+$Comp
+L power:GND #PWR0101
+U 1 1 5E7B7996
+P 11000 5700
+F 0 "#PWR0101" H 11000 5450 50  0001 C CNN
+F 1 "GND" H 11005 5527 50  0000 C CNN
+F 2 "" H 11000 5700 50  0001 C CNN
+F 3 "" H 11000 5700 50  0001 C CNN
+	1    11000 5700
+	1    0    0    -1  
+$EndComp
+Connection ~ 11000 5700
+Wire Wire Line
+	12200 5050 12400 5050
+Wire Wire Line
+	12400 5050 12400 5700
+Wire Wire Line
+	12400 5700 12200 5700
 Wire Bus Line
 	2800 5550 2800 6400
 Wire Bus Line
@@ -2436,8 +2592,6 @@ Wire Bus Line
 	8500 750  8500 5850
 Wire Bus Line
 	9550 750  9550 6350
-Text Label 7700 7350 0    50   ~ 0
-TX
-Text Label 7700 7450 0    50   ~ 0
-RX
+Text Label 12400 5400 1    50   ~ 0
+5V
 $EndSCHEMATC

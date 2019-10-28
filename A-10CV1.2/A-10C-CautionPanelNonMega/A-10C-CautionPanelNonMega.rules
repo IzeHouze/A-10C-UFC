@@ -11,7 +11,7 @@
     (via_costs 50)
     (plane_via_costs 5)
     (start_ripup_costs 100)
-    (start_pass_no 11614)
+    (start_pass_no 16817)
     (layer_rule F.Cu
       (active on)
       (preferred_direction horizontal)
@@ -87,24 +87,25 @@
     )
   )
   (class "kicad_default"
-    "Net-(U2-Pad10)" "Net-(U3-Pad10)" "Net-(U4-Pad10)" "Net-(U5-Pad10)" "Net-(U6-Pad10)" "Net-(U7-Pad10)" "Net-(J2-Pad1)" "Net-(J2-Pad2)"
-    /AO8 /AO7 /AO6 /AO5 /AO4 /AO3 /AO2 /AO1
-    /BO1 /BO2 /BO3 /BO4 /BO5 /BO6 /BO7 /BO8
-    /CO8 /CO7 /CO6 /CO5 /CO4 /CO3 /CO2 /CO1
-    /EO8 /EO7 /EO6 /EO5 /EO4 /EO3 /EO2 /EO1
-    /DO1 /DO2 /DO3 /DO4 /DO5 /DO6 /DO7 /DO8
-    /FO1 /FO2 /FO3 /FO4 /FO5 /FO6 /FO7 /FO8
-    /P1 /P25 /AREF "/PWM_Brightness" /P13 /P37 "Net-(J2-Pad3)" /D0
-    /D1 /D2 /D3 /D4 /D5 /D6 /D7 "Net-(J2-Pad14)"
-    "Net-(J2-Pad15)" "Net-(J3-Pad11)" "Net-(J3-Pad10)" "Net-(J3-Pad9)" "Net-(J3-Pad8)" "Net-(J3-Pad7)" "Net-(J3-Pad6)" "Net-(J3-Pad5)"
-    /A0 "Net-(U2-Pad1)" "Net-(U2-Pad2)" "Net-(U2-Pad3)" "Net-(U2-Pad4)" "Net-(U2-Pad5)" "Net-(U2-Pad6)" "Net-(U2-Pad7)"
-    "Net-(U2-Pad8)" "Net-(U10-Pad19)" "Net-(U10-Pad16)" "Net-(U10-Pad15)" "Net-(U10-Pad12)" "Net-(U10-Pad9)" "Net-(U10-Pad6)" "Net-(U10-Pad5)"
-    "Net-(U10-Pad2)" "Net-(U11-Pad19)" "Net-(U11-Pad16)" "Net-(U11-Pad15)" "Net-(U11-Pad12)" "Net-(U11-Pad9)" "Net-(U11-Pad6)" "Net-(U11-Pad5)"
-    "Net-(U11-Pad2)" "Net-(U12-Pad2)" "Net-(U12-Pad5)" "Net-(U12-Pad6)" "Net-(U12-Pad9)" "Net-(U12-Pad12)" "Net-(U12-Pad15)" "Net-(U12-Pad16)"
-    "Net-(U12-Pad19)" "Net-(U13-Pad19)" "Net-(U13-Pad16)" "Net-(U13-Pad15)" "Net-(U13-Pad12)" "Net-(U13-Pad9)" "Net-(U13-Pad6)" "Net-(U13-Pad5)"
-    "Net-(U13-Pad2)" "Net-(U14-Pad2)" "Net-(U14-Pad5)" "Net-(U14-Pad6)" "Net-(U14-Pad9)" "Net-(U14-Pad12)" "Net-(U14-Pad15)" "Net-(U14-Pad16)"
-    "Net-(U14-Pad19)" /CP0 /CP4 /CP1 /CP5 /CP2 "Net-(U8-Pad12)" /CP3
-    "Net-(U8-Pad13)" "Net-(J3-Pad15)" "Net-(J3-Pad14)" "Net-(J3-Pad4)" "Net-(J3-Pad3)"
+    "Net-(U2-Pad10)" "Net-(U3-Pad10)" "Net-(U4-Pad10)" "Net-(U5-Pad10)" "Net-(U6-Pad10)" "Net-(U7-Pad10)" /AO8 /AO7
+    /AO6 /AO5 /AO4 /AO3 /AO2 /AO1 /BO1 /BO2
+    /BO3 /BO4 /BO5 /BO6 /BO7 /BO8 /CO8 /CO7
+    /CO6 /CO5 /CO4 /CO3 /CO2 /CO1 /EO8 /EO7
+    /EO6 /EO5 /EO4 /EO3 /EO2 /EO1 /DO1 /DO2
+    /DO3 /DO4 /DO5 /DO6 /DO7 /DO8 /FO1 /FO2
+    /FO3 /FO4 /FO5 /FO6 /FO7 /FO8 /P1 /P25
+    /AREF "/PWM_Brightness" /P13 /P37 "Net-(J2-Pad3)" /D0 /D1 /D2
+    /D3 /D4 /D5 /D6 /D7 "Net-(J2-Pad14)" "Net-(J2-Pad15)" "Net-(J3-Pad10)"
+    "Net-(J3-Pad9)" "Net-(J3-Pad8)" "Net-(J3-Pad7)" "Net-(J3-Pad6)" "Net-(J3-Pad5)" /A0 "Net-(U2-Pad1)" "Net-(U2-Pad2)"
+    "Net-(U2-Pad3)" "Net-(U2-Pad4)" "Net-(U2-Pad5)" "Net-(U2-Pad6)" "Net-(U2-Pad7)" "Net-(U2-Pad8)" "Net-(U10-Pad19)" "Net-(U10-Pad16)"
+    "Net-(U10-Pad15)" "Net-(U10-Pad12)" "Net-(U10-Pad9)" "Net-(U10-Pad6)" "Net-(U10-Pad5)" "Net-(U10-Pad2)" "Net-(U11-Pad19)" "Net-(U11-Pad16)"
+    "Net-(U11-Pad15)" "Net-(U11-Pad12)" "Net-(U11-Pad9)" "Net-(U11-Pad6)" "Net-(U11-Pad5)" "Net-(U11-Pad2)" "Net-(U12-Pad2)" "Net-(U12-Pad5)"
+    "Net-(U12-Pad6)" "Net-(U12-Pad9)" "Net-(U12-Pad12)" "Net-(U12-Pad15)" "Net-(U12-Pad16)" "Net-(U12-Pad19)" "Net-(U13-Pad19)" "Net-(U13-Pad16)"
+    "Net-(U13-Pad15)" "Net-(U13-Pad12)" "Net-(U13-Pad9)" "Net-(U13-Pad6)" "Net-(U13-Pad5)" "Net-(U13-Pad2)" "Net-(U14-Pad2)" "Net-(U14-Pad5)"
+    "Net-(U14-Pad6)" "Net-(U14-Pad9)" "Net-(U14-Pad12)" "Net-(U14-Pad15)" "Net-(U14-Pad16)" "Net-(U14-Pad19)" /CP0 /CP4
+    /CP1 /CP5 /CP2 "Net-(U8-Pad12)" /CP3 "Net-(U8-Pad13)" "Net-(J3-Pad15)" "Net-(J3-Pad14)"
+    "Net-(J3-Pad4)" "Net-(J3-Pad3)" /TX /RX /CE /CPP0 /CPP4 /CPP1
+    /CPP5 /CPP2 /CPP3
     (clearance_class "kicad_default")
     (via_rule kicad_default)
     (rule

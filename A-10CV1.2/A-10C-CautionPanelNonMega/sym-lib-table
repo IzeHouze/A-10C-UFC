@@ -9,4 +9,6 @@
   (lib (name Connector)(type Legacy)(uri ${KICAD_SYMBOL_DIR}/Connector.lib)(options "")(descr ""))
   (lib (name Transistor_BJT)(type Legacy)(uri ${KICAD_SYMBOL_DIR}/Transistor_BJT.lib)(options "")(descr ""))
   (lib (name A-10C-CautionPanelNonMega-rescue)(type Legacy)(uri ${KIPRJMOD}/A-10C-CautionPanelNonMega-rescue.lib)(options "")(descr ""))
+  (lib (name 74xGxx)(type Legacy)(uri ${KICAD_SYMBOL_DIR}/74xGxx.lib)(options "")(descr ""))
+  (lib (name 74xx)(type Legacy)(uri ${KICAD_SYMBOL_DIR}/74xx.lib)(options "")(descr ""))
 )
