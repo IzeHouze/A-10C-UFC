@@ -124,7 +124,7 @@ L Regulator_Linear:LM7805_TO220 U1
 U 1 1 5D88D2B7
 P 1150 1800
 F 0 "U1" H 1150 2042 50  0000 C CNN
-F 1 "LM7805_TO220" H 1150 1951 50  0000 C CNN
+F 1 "L78S05CV_TO220" H 1200 1950 50  0000 C CNN
 F 2 "Package_TO_SOT_THT:TO-220-3_Vertical" H 1150 2025 50  0001 C CIN
 F 3 "http://www.fairchildsemi.com/ds/LM/LM7805.pdf" H 1150 1750 50  0001 C CNN
 	1    1150 1800
@@ -1046,12 +1046,12 @@ $EndComp
 $Comp
 L Transistor_BJT:BC338 Q3
 U 1 1 5F354CC3
-P 2800 2700
-F 0 "Q3" H 2991 2746 50  0000 L CNN
-F 1 "BC338" H 2991 2655 50  0000 L CNN
-F 2 "Package_TO_SOT_THT:TO-92_Inline" H 3000 2625 50  0001 L CIN
-F 3 "http://diotec.com/tl_files/diotec/files/pdf/datasheets/bc337" H 2800 2700 50  0001 L CNN
-	1    2800 2700
+P 2600 2700
+F 0 "Q3" H 2791 2746 50  0000 L CNN
+F 1 "BC338" H 2791 2655 50  0000 L CNN
+F 2 "Package_TO_SOT_THT:TO-92_Inline" H 2800 2625 50  0001 L CIN
+F 3 "http://diotec.com/tl_files/diotec/files/pdf/datasheets/bc337" H 2600 2700 50  0001 L CNN
+	1    2600 2700
 	0    -1   -1   0   
 $EndComp
 $Comp
@@ -1495,11 +1495,9 @@ Wire Wire Line
 Wire Wire Line
 	2450 3750 2100 3750
 Wire Wire Line
-	2100 2900 2800 2900
+	2100 2900 2600 2900
 Wire Wire Line
 	1950 1500 2250 1500
-Wire Wire Line
-	2600 2600 1950 2600
 Wire Wire Line
 	2250 3450 1950 3450
 Wire Bus Line
@@ -1678,7 +1676,7 @@ Wire Wire Line
 Wire Bus Line
 	2900 600  3250 600 
 Wire Bus Line
-	3250 6350 9550 6350
+	3250 6550 9550 6550
 Connection ~ 1950 3450
 Connection ~ 2100 3750
 Wire Wire Line
@@ -2578,6 +2576,10 @@ Wire Wire Line
 	12400 6400 12200 6400
 Text Label 12400 6100 1    50   ~ 0
 5V
+Wire Wire Line
+	2400 2600 1950 2600
+Wire Wire Line
+	2800 2600 3000 2600
 Wire Bus Line
 	2800 5550 2800 6400
 Wire Bus Line
@@ -2585,7 +2587,7 @@ Wire Bus Line
 Wire Bus Line
 	2900 600  2900 4050
 Wire Bus Line
-	3250 600  3250 6350
+	3250 600  3250 6550
 Wire Bus Line
 	3400 850  3400 6400
 Wire Bus Line
@@ -2593,5 +2595,5 @@ Wire Bus Line
 Wire Bus Line
 	8500 750  8500 5850
 Wire Bus Line
-	9550 750  9550 6350
+	9550 750  9550 6550
 $EndSCHEMATC
