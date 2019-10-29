@@ -76,7 +76,6 @@ void onClCUpdate(unsigned int updatedValues) {
   DcsBios::IntegerBuffer cautionLightsC( 0x10d8, 0xffff, 0, onClCUpdate );
   
 void loop() {
-  // put your main code here, to run repeatedly:
   analogWrite(pwmPin,map(analogRead(sensorPin), 0, 1023, 0, 255));
   DcsBios::loop();
 }

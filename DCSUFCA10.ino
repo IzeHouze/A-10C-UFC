@@ -46,6 +46,7 @@ char cm2ILS[] = "EPP_BATTERY_PWR";
 char eccmDL[] = "EPP_INVERTER";
 char idmBCN[] = "EPP_APU_GEN_PWR";
 char intenON[] = "UFC_INTEN";
+char X0[] = "UFC_10";
 
 void flash(int count)
 {
@@ -74,6 +75,7 @@ void setA10()
   strcpy(eccmDL, "EPP_INVERTER");
   strcpy(idmBCN, "EPP_APU_GEN_PWR");
   strcpy(intenON, "UFC_INTEN");
+  strcpy(X0, "UFC_10");
   DcsBios::LED masterCaution(0x1012, 0x0800, 12);
 }
 
@@ -91,7 +93,8 @@ void setF18()
   strcpy(eccmDL, "UFC_DL");
   strcpy(idmBCN, "UFC_BCN");
   strcpy(intenON, "UFC_ONOFF");
-  DcsBios::LED masterCaution(0x5400, 0x0200, 12);
+  strcpy(X0, "UFC_0");
+  DcsBios::LED masterCaution(0x7408, 0x0200, 12);
 }
 
 void setup()
@@ -144,7 +147,7 @@ void keypadEvent(KeypadEvent KEY) {
         case '6': sendDcsBiosMessage("UFC_6", "1"); break;
         case '9': sendDcsBiosMessage("UFC_9", "1"); break;
         case 'H': sendDcsBiosMessage("UFC_HACK", "1"); break;
-        case '0': sendDcsBiosMessage("UFC_10", "1"); break;
+        case '0': sendDcsBiosMessage(X0, "1"); break;
         case 'c': sendDcsBiosMessage(spcAP, "1"); break;
         case 'F': sendDcsBiosMessage("UFC_FUNC", "1"); break;
         case 'L': sendDcsBiosMessage("UFC_LTR", "1"); break;
@@ -232,7 +235,7 @@ void keypadEvent(KeypadEvent KEY) {
         case '6': sendDcsBiosMessage("UFC_6", "0"); break;
         case '9': sendDcsBiosMessage("UFC_9", "0"); break;
         case 'H': sendDcsBiosMessage("UFC_HACK", "0"); break;
-        case '0': sendDcsBiosMessage("UFC_10", "0"); break;
+        case '0': sendDcsBiosMessage(X0, "0"); break;
         case 'c': sendDcsBiosMessage(spcAP, "0"); break;
         case 'F': sendDcsBiosMessage("UFC_FUNC", "0"); break;
         case 'L': sendDcsBiosMessage("UFC_LTR", "0"); break;
