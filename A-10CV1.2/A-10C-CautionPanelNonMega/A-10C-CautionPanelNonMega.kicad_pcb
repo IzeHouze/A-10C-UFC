@@ -2384,10 +2384,10 @@
     )
   )
 
-  (gr_text "R\n\nT" (at 76.2 121.92) (layer B.SilkS)
+  (gr_text "Rx\n\nTx" (at 77.47 121.92) (layer B.SilkS)
     (effects (font (size 1 1) (thickness 0.15)) (justify mirror))
   )
-  (gr_text "Serial Data (RS-485)" (at 86.36 120.65) (layer B.SilkS)
+  (gr_text " Serial Data \n(From RS-485)" (at 86.36 121.92) (layer B.SilkS)
     (effects (font (size 1 1) (thickness 0.15)) (justify mirror))
   )
   (gr_line (start 66.04 114.3) (end 64.77 113.03) (layer B.SilkS) (width 0.12) (tstamp 5DB32E81))

@@ -2596,4 +2596,8 @@ Wire Bus Line
 	8500 750  8500 5850
 Wire Bus Line
 	9550 750  9550 6550
+Text Label 1650 6750 0    50   ~ 0
+CP
+Text Label 1650 6900 0    50   ~ 0
+DS
 $EndSCHEMATC
