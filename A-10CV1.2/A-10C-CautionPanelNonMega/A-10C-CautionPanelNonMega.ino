@@ -43,10 +43,9 @@ void updateCautionLights(unsigned int address, unsigned int data) {
     if (bitID == -1) {    //Register full, set pulse for shift register.  Will be ready for output latch 0 (of 6) if no other actions taken.
       digitalWrite(clockBit, HIGH);
       digitalWrite(clockPulse, HIGH);
-      //delayMicroseconds(100);
       digitalWrite(clockPulse, LOW);
       digitalWrite(clockBit, LOW);
-      int s = (row - 1) / 2;
+      int s = (row - 2) / 2;
       int c = 0;
       while (s > c) { //Step to correct output latch
         digitalWrite(clockPulse, HIGH);
