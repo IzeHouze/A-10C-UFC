@@ -16,9 +16,11 @@ byte sensorPin = A0;
 byte oePin = A1;
 
 void setup() {
+  pinMode(clockBit, OUTPUT);
+  pinMode(clockPulse, OUTPUT);
   pinMode(oePin, OUTPUT);
-  for (int i = 2; i < 13; i++) {
-    pinMode(i, OUTPUT);
+  for (int i = 0; i < 8; i++) {
+    pinMode(dataPin[i], OUTPUT);
   }
   DcsBios::setup();
 }
@@ -54,11 +56,14 @@ void updateCautionLights(unsigned int address, unsigned int data) {
       }
       digitalWrite(oePin, HIGH); //Enable output latch to accept values.
       digitalWrite(oePin, LOW);
-      for (c = 0; c < 7; c++) { //Step shift register to a safe position for next run.
+      for (c = 0; c <= 8; c++) { //Step shift register to a safe position for next run.
         digitalWrite(clockPulse, HIGH);
         digitalWrite(clockPulse, LOW);
       }
       bitID = 7;
+      for (c = 7; c >= 0; c++) { //Reset bits on bus before next itteration.
+        digitalWrite(dataPin[c], LOW);
+      }
     }
   }
 }
