@@ -1,9 +1,9 @@
-(pcb "D:\DCS\DCSUFCA10\A-10CV1.2\A-10C-CautionPanelNonMega\A-10C-CautionPanelNonMega.dsn"
+(pcb "/home/jim/DCSUFCA10/A-10CV1.2/A-10C-CautionPanelNonMega/A-10C-CautionPanelNonMega.dsn"
   (parser
     (string_quote ")
     (space_in_quoted_tokens on)
     (host_cad "KiCad's Pcbnew")
-    (host_version "(5.1.4)-1")
+    (host_version "5.1.4-e60b266~84~ubuntu16.04.1")
   )
   (resolution um 10)
   (unit um)
@@ -43,7 +43,7 @@
       (place J1 61696.6 -55168.8 back 270 (PN Barrel_Jack))
     )
     (component "Package_TO_SOT_THT:TO-220-3_Vertical"
-      (place U1 80187.8 -53111.4 back 0 (PN LM7805_TO220))
+      (place U1 80187.8 -53111.4 back 0 (PN L78S05CV_TO220))
     )
     (component Connector_PinHeader_2.54mm:PinHeader_1x24_P2.54mm_Vertical
       (place J8 175260 -59690 front 0 (PN Conn_01x24))
@@ -63,6 +63,7 @@
     )
     (component Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical
       (place J13 77470 -66040 back 0 (PN Conn_01x03))
+      (place J4 74168 -124968 back 180 (PN "Serial Data (via RS-485)"))
     )
     (component "Package_DIP:DIP-18_W7.62mm"
       (place U2 151130 -53340 back 90 (PN ULN2803A))
@@ -93,9 +94,6 @@
       (place U10 110490 -119380 back 180 (PN 74LS374))
       (place U12 135890 -119380 back 180 (PN 74LS374))
       (place U14 135890 -92710 back 180 (PN 74LS374))
-    )
-    (component Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical
-      (place J4 73660 -123190 back 180 (PN "Serial Tx/Rx"))
     )
     (component "Package_DIP:DIP-14_W7.62mm::1"
       (place U16 97790 -111760 back 180 (PN 74LS08))
@@ -550,25 +548,6 @@
       (pin Oval[A]Pad_1600x1600_um 11 7620 -22860)
       (pin Rect[A]Pad_1600x1600_um 1 0 0)
     )
-    (image Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical
-      (outline (path signal 100  -635 1270  1270 1270))
-      (outline (path signal 100  1270 1270  1270 -3810))
-      (outline (path signal 100  1270 -3810  -1270 -3810))
-      (outline (path signal 100  -1270 -3810  -1270 635))
-      (outline (path signal 100  -1270 635  -635 1270))
-      (outline (path signal 120  -1330 -3870  1330 -3870))
-      (outline (path signal 120  -1330 -1270  -1330 -3870))
-      (outline (path signal 120  1330 -1270  1330 -3870))
-      (outline (path signal 120  -1330 -1270  1330 -1270))
-      (outline (path signal 120  -1330 0  -1330 1330))
-      (outline (path signal 120  -1330 1330  0 1330))
-      (outline (path signal 50  -1800 1800  -1800 -4350))
-      (outline (path signal 50  -1800 -4350  1800 -4350))
-      (outline (path signal 50  1800 -4350  1800 1800))
-      (outline (path signal 50  1800 1800  -1800 1800))
-      (pin Rect[A]Pad_1700x1700_um 1 0 0)
-      (pin Oval[A]Pad_1700x1700_um 2 0 -2540)
-    )
     (image "Package_DIP:DIP-14_W7.62mm::1"
       (outline (path signal 50  8700 1550  -1100 1550))
       (outline (path signal 50  8700 -16800  8700 1550))
@@ -664,7 +643,7 @@
     (net GND
       (pins C1-2 C2-2 J1-2 U1-2 J13-3 U2-9 U3-9 U4-9 U5-9 U6-9 U7-9 J2-4 J3-2 U8-7
         U9-1 U9-10 U10-10 U10-1 U11-1 U11-10 U12-10 U12-1 U13-1 U13-10 U14-10 U14-1
-        U15-7 U16-7)
+        U15-7 U16-7 J4-3)
     )
     (net "Net-(U2-Pad10)"
       (pins U2-10)
@@ -883,12 +862,6 @@
     )
     (net /D7
       (pins J2-13 U9-18 U10-18 U11-18 U12-18 U13-18 U14-18)
-    )
-    (net "Net-(J2-Pad14)"
-      (pins J2-14 U8-1 U8-2)
-    )
-    (net "Net-(J2-Pad15)"
-      (pins J2-15 U8-8)
     )
     (net "Net-(J3-Pad10)"
       (pins J3-10)
@@ -1118,28 +1091,34 @@
     (net /CPP3
       (pins U8-6 U15-13)
     )
+    (net /DS
+      (pins J2-14 U8-1 U8-2)
+    )
+    (net /CP
+      (pins J2-15 U8-8)
+    )
     (class kicad_default "" /A0 /AO1 /AO2 /AO3 /AO4 /AO5 /AO6 /AO7 /AO8 /AREF
       /BO1 /BO2 /BO3 /BO4 /BO5 /BO6 /BO7 /BO8 /CE /CO1 /CO2 /CO3 /CO4 /CO5
-      /CO6 /CO7 /CO8 /CP0 /CP1 /CP2 /CP3 /CP4 /CP5 /CPP0 /CPP1 /CPP2 /CPP3
+      /CO6 /CO7 /CO8 /CP /CP0 /CP1 /CP2 /CP3 /CP4 /CP5 /CPP0 /CPP1 /CPP2 /CPP3
       /CPP4 /CPP5 /D0 /D1 /D2 /D3 /D4 /D5 /D6 /D7 /DO1 /DO2 /DO3 /DO4 /DO5
-      /DO6 /DO7 /DO8 /EO1 /EO2 /EO3 /EO4 /EO5 /EO6 /EO7 /EO8 /FO1 /FO2 /FO3
-      /FO4 /FO5 /FO6 /FO7 /FO8 /P1 /P13 /P25 /P37 /PWM_Brightness /RX /TX
-      "Net-(J2-Pad14)" "Net-(J2-Pad15)" "Net-(J2-Pad3)" "Net-(J3-Pad10)" "Net-(J3-Pad14)"
-      "Net-(J3-Pad15)" "Net-(J3-Pad3)" "Net-(J3-Pad4)" "Net-(J3-Pad5)" "Net-(J3-Pad6)"
-      "Net-(J3-Pad7)" "Net-(J3-Pad8)" "Net-(J3-Pad9)" "Net-(U10-Pad12)" "Net-(U10-Pad15)"
-      "Net-(U10-Pad16)" "Net-(U10-Pad19)" "Net-(U10-Pad2)" "Net-(U10-Pad5)"
-      "Net-(U10-Pad6)" "Net-(U10-Pad9)" "Net-(U11-Pad12)" "Net-(U11-Pad15)"
-      "Net-(U11-Pad16)" "Net-(U11-Pad19)" "Net-(U11-Pad2)" "Net-(U11-Pad5)"
-      "Net-(U11-Pad6)" "Net-(U11-Pad9)" "Net-(U12-Pad12)" "Net-(U12-Pad15)"
-      "Net-(U12-Pad16)" "Net-(U12-Pad19)" "Net-(U12-Pad2)" "Net-(U12-Pad5)"
-      "Net-(U12-Pad6)" "Net-(U12-Pad9)" "Net-(U13-Pad12)" "Net-(U13-Pad15)"
-      "Net-(U13-Pad16)" "Net-(U13-Pad19)" "Net-(U13-Pad2)" "Net-(U13-Pad5)"
-      "Net-(U13-Pad6)" "Net-(U13-Pad9)" "Net-(U14-Pad12)" "Net-(U14-Pad15)"
-      "Net-(U14-Pad16)" "Net-(U14-Pad19)" "Net-(U14-Pad2)" "Net-(U14-Pad5)"
-      "Net-(U14-Pad6)" "Net-(U14-Pad9)" "Net-(U2-Pad1)" "Net-(U2-Pad10)" "Net-(U2-Pad2)"
-      "Net-(U2-Pad3)" "Net-(U2-Pad4)" "Net-(U2-Pad5)" "Net-(U2-Pad6)" "Net-(U2-Pad7)"
-      "Net-(U2-Pad8)" "Net-(U3-Pad10)" "Net-(U4-Pad10)" "Net-(U5-Pad10)" "Net-(U6-Pad10)"
-      "Net-(U7-Pad10)" "Net-(U8-Pad12)" "Net-(U8-Pad13)"
+      /DO6 /DO7 /DO8 /DS /EO1 /EO2 /EO3 /EO4 /EO5 /EO6 /EO7 /EO8 /FO1 /FO2
+      /FO3 /FO4 /FO5 /FO6 /FO7 /FO8 /P1 /P13 /P25 /P37 /PWM_Brightness /RX
+      /TX "Net-(J2-Pad14)" "Net-(J2-Pad15)" "Net-(J2-Pad3)" "Net-(J3-Pad10)"
+      "Net-(J3-Pad14)" "Net-(J3-Pad15)" "Net-(J3-Pad3)" "Net-(J3-Pad4)" "Net-(J3-Pad5)"
+      "Net-(J3-Pad6)" "Net-(J3-Pad7)" "Net-(J3-Pad8)" "Net-(J3-Pad9)" "Net-(U10-Pad12)"
+      "Net-(U10-Pad15)" "Net-(U10-Pad16)" "Net-(U10-Pad19)" "Net-(U10-Pad2)"
+      "Net-(U10-Pad5)" "Net-(U10-Pad6)" "Net-(U10-Pad9)" "Net-(U11-Pad12)"
+      "Net-(U11-Pad15)" "Net-(U11-Pad16)" "Net-(U11-Pad19)" "Net-(U11-Pad2)"
+      "Net-(U11-Pad5)" "Net-(U11-Pad6)" "Net-(U11-Pad9)" "Net-(U12-Pad12)"
+      "Net-(U12-Pad15)" "Net-(U12-Pad16)" "Net-(U12-Pad19)" "Net-(U12-Pad2)"
+      "Net-(U12-Pad5)" "Net-(U12-Pad6)" "Net-(U12-Pad9)" "Net-(U13-Pad12)"
+      "Net-(U13-Pad15)" "Net-(U13-Pad16)" "Net-(U13-Pad19)" "Net-(U13-Pad2)"
+      "Net-(U13-Pad5)" "Net-(U13-Pad6)" "Net-(U13-Pad9)" "Net-(U14-Pad12)"
+      "Net-(U14-Pad15)" "Net-(U14-Pad16)" "Net-(U14-Pad19)" "Net-(U14-Pad2)"
+      "Net-(U14-Pad5)" "Net-(U14-Pad6)" "Net-(U14-Pad9)" "Net-(U2-Pad1)" "Net-(U2-Pad10)"
+      "Net-(U2-Pad2)" "Net-(U2-Pad3)" "Net-(U2-Pad4)" "Net-(U2-Pad5)" "Net-(U2-Pad6)"
+      "Net-(U2-Pad7)" "Net-(U2-Pad8)" "Net-(U3-Pad10)" "Net-(U4-Pad10)" "Net-(U5-Pad10)"
+      "Net-(U6-Pad10)" "Net-(U7-Pad10)" "Net-(U8-Pad12)" "Net-(U8-Pad13)"
       (circuit
         (use_via Via[0-1]_800:400_um)
       )

@@ -2367,17 +2367,6 @@ Text Label 2600 5250 0    50   ~ 0
 TX
 Text Label 2600 5350 0    50   ~ 0
 RX
-$Comp
-L Connector_Generic:Conn_01x02 J4
-U 1 1 5DFBAF06
-P 8100 7350
-F 0 "J4" H 8180 7342 50  0000 L CNN
-F 1 "Serial Tx/Rx" H 8180 7251 50  0000 L CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical" H 8100 7350 50  0001 C CNN
-F 3 "~" H 8100 7350 50  0001 C CNN
-	1    8100 7350
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
 	7900 7350 7600 7350
 Wire Wire Line
@@ -2534,7 +2523,7 @@ U 5 1 5E767546
 P 11700 5750
 F 0 "U15" V 11333 5750 50  0000 C CNN
 F 1 "74LS08" V 11424 5750 50  0000 C CNN
-F 2 "" H 11700 5750 50  0001 C CNN
+F 2 "Package_DIP:DIP-14_W7.62mm" H 11700 5750 50  0001 C CNN
 F 3 "http://www.ti.com/lit/gpn/sn74LS08" H 11700 5750 50  0001 C CNN
 	5    11700 5750
 	0    1    1    0   
@@ -2545,7 +2534,7 @@ U 5 1 5E76A619
 P 11700 6400
 F 0 "U16" V 11333 6400 50  0000 C CNN
 F 1 "74LS08" V 11424 6400 50  0000 C CNN
-F 2 "" H 11700 6400 50  0001 C CNN
+F 2 "Package_DIP:DIP-14_W7.62mm" H 11700 6400 50  0001 C CNN
 F 3 "http://www.ti.com/lit/gpn/sn74LS08" H 11700 6400 50  0001 C CNN
 	5    11700 6400
 	0    1    1    0   
@@ -2636,6 +2625,27 @@ Text Notes 4500 7800 1    50   ~ 0
 ADC6
 Text Notes 4600 7800 1    50   ~ 0
 ADC7
+Text Notes 4700 7750 1    50   ~ 0
+5V
+Text Notes 4800 7800 1    50   ~ 0
+RST
+Text Notes 4900 7800 1    50   ~ 0
+GND
+Text Notes 5000 7800 1    50   ~ 0
+VIN
+$Comp
+L Connector_Generic:Conn_01x03 J4
+U 1 1 5DE08373
+P 8100 7450
+F 0 "J4" H 8180 7492 50  0000 L CNN
+F 1 "Serial Data (via RS-485)" H 8180 7401 50  0000 L CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical" H 8100 7450 50  0001 C CNN
+F 3 "~" H 8100 7450 50  0001 C CNN
+	1    8100 7450
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7900 7550 7600 7550
 Wire Bus Line
 	2800 5550 2800 6400
 Wire Bus Line
@@ -2652,12 +2662,6 @@ Wire Bus Line
 	8500 750  8500 5850
 Wire Bus Line
 	9550 750  9550 6550
-Text Notes 4700 7750 1    50   ~ 0
-5V
-Text Notes 4800 7800 1    50   ~ 0
-RST
-Text Notes 4900 7800 1    50   ~ 0
+Text Label 7700 7550 0    50   ~ 0
 GND
-Text Notes 5000 7800 1    50   ~ 0
-VIN
 $EndSCHEMATC
