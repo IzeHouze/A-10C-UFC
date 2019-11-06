@@ -2314,7 +2314,7 @@ L Connector:Conn_01x15_Female J2
 U 1 1 6133C7E7
 P 2350 5950
 F 0 "J2" H 2242 6835 50  0000 C CNN
-F 1 "Nano Pins 1-15" V 2400 6100 50  0000 C CNN
+F 1 "Nano Pins 1-15" V 1800 6050 50  0000 C CNN
 F 2 "Connector_PinSocket_2.54mm:PinSocket_1x15_P2.54mm_Vertical" H 2350 5950 50  0001 C CNN
 F 3 "~" H 2350 5950 50  0001 C CNN
 	1    2350 5950
@@ -2324,8 +2324,8 @@ $Comp
 L Connector:Conn_01x15_Female J3
 U 1 1 6133F9F4
 P 4250 7550
-F 0 "J3" V 4323 7530 50  0000 C CNN
-F 1 "Nano Pins 16-30 (reversed)" V 4414 7530 50  0000 C CNN
+F 0 "J3" V 3550 7550 50  0000 C CNN
+F 1 "Nano Pins 16-30 (reversed)" V 3650 7550 50  0000 C CNN
 F 2 "Connector_PinSocket_2.54mm:PinSocket_1x15_P2.54mm_Vertical" H 4250 7550 50  0001 C CNN
 F 3 "~" H 4250 7550 50  0001 C CNN
 	1    4250 7550
@@ -2580,6 +2580,62 @@ Wire Wire Line
 	2400 2600 1950 2600
 Wire Wire Line
 	2800 2600 3000 2600
+Text Label 1650 6750 0    50   ~ 0
+CP
+Text Label 1650 6900 0    50   ~ 0
+DS
+Text Notes 2150 5800 0    50   ~ 0
+DP3
+Text Notes 2150 5900 0    50   ~ 0
+DP4
+Text Notes 2150 6000 0    50   ~ 0
+DP5
+Text Notes 2150 6100 0    50   ~ 0
+DP6
+Text Notes 2150 6200 0    50   ~ 0
+DP7
+Text Notes 2150 6300 0    50   ~ 0
+DP8
+Text Notes 2150 6400 0    50   ~ 0
+DP9
+Text Notes 2100 6500 0    50   ~ 0
+DP10
+Text Notes 2150 5600 0    50   ~ 0
+GND
+Text Notes 2150 5700 0    50   ~ 0
+DP2
+Text Notes 2150 5500 0    50   ~ 0
+RST
+Text Notes 2150 5400 0    50   ~ 0
+DP0
+Text Notes 2150 5300 0    50   ~ 0
+DP1
+Text Notes 2100 6600 0    50   ~ 0
+DP11
+Text Notes 2100 6700 0    50   ~ 0
+DP12
+Text Notes 3600 7800 1    50   ~ 0
+DP13
+Text Notes 3700 7800 1    50   ~ 0
+3V3
+Text Notes 3800 7800 1    50   ~ 0
+AREF
+Text Notes 3900 7800 1    50   ~ 0
+ADC0
+Text Notes 4000 7800 1    50   ~ 0
+ADC1
+Text Notes 4100 7800 1    50   ~ 0
+ADC2
+Text Notes 4200 7800 1    50   ~ 0
+ADC3
+Text Notes 4300 7800 1    50   ~ 0
+ADC4
+Text Notes 4400 7800 1    50   ~ 0
+ADC5
+Text Notes 4500 7800 1    50   ~ 0
+ADC6
+Text Notes 4600 7800 1    50   ~ 0
+ADC7
 Wire Bus Line
 	2800 5550 2800 6400
 Wire Bus Line
@@ -2596,4 +2652,12 @@ Wire Bus Line
 	8500 750  8500 5850
 Wire Bus Line
 	9550 750  9550 6550
+Text Notes 4700 7750 1    50   ~ 0
+5V
+Text Notes 4800 7800 1    50   ~ 0
+RST
+Text Notes 4900 7800 1    50   ~ 0
+GND
+Text Notes 5000 7800 1    50   ~ 0
+VIN
 $EndSCHEMATC
