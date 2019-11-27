@@ -61,7 +61,7 @@ void updateCautionLights(unsigned int address, unsigned int data) {
         digitalWrite(clockPulse, LOW);
       }
       bitID = 7;
-      for (c = 7; c >= 0; c++) { //Reset bits on bus before next itteration.
+      for (c = 7; c >= 0; c--) { //Reset bits on bus before next itteration.
         digitalWrite(dataPin[c], LOW);
       }
     }
